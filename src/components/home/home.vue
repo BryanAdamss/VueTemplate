@@ -1,7 +1,5 @@
 <template>
-  <div>
-    {{msg}}
-  </div>
+  <div class="c-Home">Home</div>
 </template>
 <script>
   export default {
@@ -18,10 +16,8 @@
 <style lang="scss" scoped>
   // js中的import可以使用webpack.base中定义的路径别名
   // sass中无法使用，必须用相对路径
-  /*@import "../../sass/utils/_variablesCustom-m";*/
-  /*@import "../../sass/utils/_utils";*/
 
-  div {
+  .c-Home {
     @include bgAlpha();
   }
 </style>

@@ -50,6 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    // 发布时，需要将assetsPublicPath'/'改为'./' 使用相对路径
     assetsPublicPath: '/',
 
     /**

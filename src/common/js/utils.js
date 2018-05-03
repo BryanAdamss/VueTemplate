@@ -42,3 +42,58 @@ export function debounce(func, delay) {
     }, delay)
   }
 }
+
+/**
+ * 将一个数组按size拆分成多个数组的块，然后把这些块组成新的数组
+ * @author cgh
+ * @time   2018-04-09
+ * @param  {[type]}   array [description]
+ * @param  {[type]}   size  [description]
+ * @return {[type]}         [返回一个新数组]
+ * @example
+ *
+ * chunk(['a', 'b', 'c', 'd'], 2);
+ * // => [['a', 'b'], ['c', 'd']]
+ *
+ * chunk(['a', 'b', 'c', 'd'], 3);
+ * // => [['a', 'b', 'c'], ['d']]
+ */
+export function chunk(array, size) {
+  let length = array.length ? array.length : 0;
+  if (!length || !size) {
+    return [];
+  }
+  let index = 0;
+  let resIndex = 0;
+  let result = new Array(Math.ceil(length / size));
+
+  while (index < length) {
+    result[resIndex++] = array.slice(index, index += size);
+  }
+  return result;
+}
+
+/**
+ * dateFormat unix时间戳格式化
+ */
+export function dateFormat(timestamp, format = 'yyyy-MM-dd hh:mm:ss') {
+  timestamp = timestamp.length === 13 ? timestamp : timestamp * 1000;
+  let date = new Date(timestamp)
+  let args = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+  };
+  if (/(y+)/.test(format)) {
+    format = format.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
+  }
+  for (var i in args) {
+    let n = args[i];
+    if (new RegExp('(' + i + ')').test(format)) {
+      format = format.replace(RegExp.$1, RegExp.$1.length === 1 ? n : ('00' + n).substr(('' + n).length));
+    }
+  }
+  return format;
+}

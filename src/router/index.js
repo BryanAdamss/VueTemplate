@@ -5,26 +5,27 @@ import Router from 'vue-router'
 // import TestB from 'components/test-b/test-b.vue'
 
 // 使用动态载入
-const Home = (resolve) => {
-  import ('components/home/home').then((module) => {
+const Home = resolve => {
+  import('components/home/home').then(module => {
     resolve(module)
   })
-};
-const TestA = (resolve) => {
-  import ('components/test-a/test-a').then((module) => {
+}
+const TestA = resolve => {
+  import('components/test-a/test-a').then(module => {
     resolve(module)
   })
-};
-const TestB = (resolve) => {
-  import ('components/test-b/test-b').then((module) => {
+}
+const TestB = resolve => {
+  import('components/test-b/test-b').then(module => {
     resolve(module)
   })
-};
+}
 
 Vue.use(Router)
 
 const router = new Router({
-  routes: [{
+  routes: [
+    {
       // 所有未匹配到的路由，重定向到Index路由上
       path: '*',
       redirect: {
@@ -38,7 +39,8 @@ const router = new Router({
       redirect: {
         name: 'Home'
       }
-    }, {
+    },
+    {
       path: '/home',
       name: 'Home',
       component: Home,
@@ -46,14 +48,16 @@ const router = new Router({
       meta: {
         title: '首页'
       }
-    }, {
+    },
+    {
       path: '/testa',
       name: 'TestA',
       component: TestA,
       meta: {
         title: 'testa'
       }
-    }, {
+    },
+    {
       path: '/testb',
       name: 'TestB',
       component: TestB,
@@ -62,14 +66,14 @@ const router = new Router({
       }
     }
   ]
-});
+})
 
 // 注册全局守卫，路由到达前修改title
 router.beforeEach((to, from, next) => {
   if (to.meta && to.meta.title) {
-    document.title = to.meta.title;
+    document.title = to.meta.title
   }
-  next();
-});
+  next()
+})
 
-export default router;
+export default router

@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // import TestA from 'components/test-a/test-a.vue'
 // import TestB from 'components/test-b/test-b.vue'
 
-// 使用动态载入
+// * 使用动态载入
 const Home = resolve => {
   import('components/home/home').then(module => {
     resolve(module)

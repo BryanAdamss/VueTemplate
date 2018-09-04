@@ -6,13 +6,15 @@ import store from './store'
 import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
-/* eslint-disable no-unused-vars */
-import VConsole from 'vconsole'
+
+if (process.env.NODE_ENV === 'development') {
+  /* eslint-disable no-unused-vars */
+  var VConsole = require('vconsole')
+  // 使用vconsole来调试
+  var vConsole = new VConsole()
+}
 
 Vue.config.productionTip = false
-
-// 使用vconsole来调试
-var vConsole = new VConsole();
 
 // 在body上绑定fastclick
 fastclick.attach(document.body)
@@ -27,6 +29,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: {App},
+  components: { App },
   template: '<App/>'
 })

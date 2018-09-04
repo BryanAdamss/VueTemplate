@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from 'components/home/home'
-// import TestA from 'components/test-a/test-a.vue'
-// import TestB from 'components/test-b/test-b.vue'
+// import Home from 'views/home/home'
+// import TestA from 'views/test-a/test-a.vue'
+// import TestB from 'views/test-b/test-b.vue'
 
 // * 使用动态载入
 const Home = resolve => {
-  import('components/home/home').then(module => {
+  import('views/home/home').then(module => {
     resolve(module)
   })
 }
 const TestA = resolve => {
-  import('components/test-a/test-a').then(module => {
+  import('views/test-a/test-a').then(module => {
     resolve(module)
   })
 }
 const TestB = resolve => {
-  import('components/test-b/test-b').then(module => {
+  import('views/test-b/test-b').then(module => {
     resolve(module)
   })
 }

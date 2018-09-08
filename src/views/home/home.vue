@@ -1,37 +1,60 @@
 <template>
-  <div class="c-Home">Home
-    <h2>aa</h2>
-    <h1 v-clickoutside="onClickOutside">test</h1>
+  <div class="c-Home">
+    <h1>Home</h1>
+    <LinkList></LinkList>
+    <router-link :to="{name:'HomeChild1'}"
+                 class="c-Link">ToHomeChild1</router-link>
+    <router-link :to="{name:'HomeChild2'}"
+                 class="c-Link">ToHomeChild2</router-link>
+    <!-- Home子路由出口 -->
+    <BaseTransitionSlide>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </BaseTransitionSlide>
   </div>
 </template>
 <script>
-// * clickOutSide指令
-import clickoutside from '@/directives/clickOutside'
+/**
+ * * Home
+ */
+
+import BaseTransitionSlide from '@/base/BaseTransitionSlide'
+
+import LinkList from '@/components/LinkList'
 
 export default {
-  // 组件需命名，采用帕斯卡风格
+  // * 组件需命名，采用帕斯卡风格
   name: 'Home',
   data() {
     return {
       msg: 'Welcome to home page!'
     }
   },
-  methods: {
-    onClickOutside(e) {
-      console.log('onClickOutside', e)
-    }
-  },
-  directives: {
-    clickoutside
+  components: {
+    BaseTransitionSlide,
+    LinkList
   }
 }
 </script>
 
 <style lang="scss" scoped>
-// js中的import可以使用webpack.base中定义的路径别名
-// sass中无法使用，必须用相对路径
+// * js中的import可以使用webpack.base中定义的路径别名
+// ! sass中无法使用，必须用相对路径
 
+// * 这里没有导入sass变量及mixin是因为通过sass-resources-loader事先导入了
 .c-Home {
   @include bgAlpha();
 }
+
+.c-Link {
+  color: blue;
+  // * 被激活的router-link会自动添加上router-link-active样式类
+  @at-root #{&}.router-link-active {
+    text-decoration: underline;
+  }
+}
 </style>
+
+
+

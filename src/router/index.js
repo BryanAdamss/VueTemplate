@@ -62,6 +62,12 @@ const AxiosTest = resolve => {
   })
 }
 
+const AxiosListDetailTest = resolve => {
+  import('views/AxiosListDetailTest/AxiosListDetailTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -156,6 +162,16 @@ const router = new Router({
       meta: {
         title: '测试AxiosTest'
       }
+    },
+    {
+      path: '/axios-test/:id',
+      name: 'AxiosListDetailTest',
+      component: AxiosListDetailTest,
+      meta: {
+        title: '测试AxiosListDetailTest'
+      },
+      // * route.params 将会被设置为组件属性
+      props: true
     }
   ]
 })

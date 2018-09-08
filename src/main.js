@@ -6,7 +6,9 @@ import store from './store'
 import router from './router'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
+import axios from '@/common/js/axios'
 
+// * 开发环境启用vconsole
 if (process.env.NODE_ENV === 'development') {
   /* eslint-disable no-unused-vars */
   var VConsole = require('vconsole')
@@ -22,6 +24,13 @@ fastclick.attach(document.body)
 // 注册lazyload并配置默认图
 Vue.use(VueLazyload, {
   loading: require('common/img/loading.gif')
+})
+
+// * 绑定axios到Vue原型上，方便使用this.$http来调用接口
+Vue.use({
+  install: (Vue, options) => {
+    Vue.prototype.$http = axios
+  }
 })
 
 /* eslint-disable no-new */

@@ -1,72 +1,46 @@
 <template>
-  <div class="c-Main">
-    <div class="c-Main-hd">
-      <span>{{testObj.name}}</span>
-      <span @click="change">点击测试vuex</span>
-      <img v-lazy="'http://placehold.it/300x200'">
-      <m-header></m-header>
-    </div>
-    <div class="c-Main-bd">
-      <transition name="slide"
-                  mode="out-in">
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
-      </transition>
-    </div>
-    <div class="c-Main-ft">
-      <m-footer></m-footer>
-    </div>
+  <div class="c-App">
+    <TopBar :title="title"></TopBar>
+    <BaseTransitionSlide>
+      <!-- 因为自定义指令clickOutside在document上绑定了点击事件,会在指令的unbind时移除事件 -->
+      <!-- 但是因为keep-alive会缓存组件，导致指令unbind不会触发，所以这里keep-alive需要排除ClickOutsideTest组件，强行让其触发unbind -->
+      <keep-alive exclude="ClickOutsideTest">
+        <router-view></router-view>
+      </keep-alive>
+    </BaseTransitionSlide>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
-import MHeader from 'views/common/m-header'
-import MFooter from 'views/common/m-footer'
+/**
+ * * App
+ */
+import BaseTransitionSlide from '@/base/BaseTransitionSlide'
+
+import TopBar from '@/components/TopBar'
 
 export default {
   name: 'App',
   data() {
     return {
-      count: 0
+      title: ''
     }
   },
-  computed: {
-    ...mapGetters(['testObj'])
-  },
-  methods: {
-    change() {
-      this.setTestObj({
-        name: `test ${this.count++}`
-      })
-    },
-    ...mapMutations({
-      setTestObj: 'SET_TEST_OBJ'
-    })
-  },
   components: {
-    MHeader,
-    MFooter
+    BaseTransitionSlide,
+    TopBar
+  },
+  watch: {
+    // * 观测route动态修改TopBar的title
+    $route(to, form, next) {
+      if (to.meta && to.meta.title) {
+        this.title = to.meta.title
+      }
+    }
   }
 }
 </script>
 
 <!--全局公用样式-->
 <style lang="scss" src="sass/common-m.scss"></style>
-<style lang="scss" scoped>
-.c-Main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  @at-root #{&}-hd {
-    flex: 0 0 auto;
-  }
-  @at-root #{&}-bd {
-    flex: 1 1 auto;
-  }
-  @at-root #{&}-ft {
-    flex: 0 0 auto;
-  }
-}
-</style>
+ 

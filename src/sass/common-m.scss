@@ -12,11 +12,11 @@
 // 下面为直接的css(相关工具的调用)导入
 // ---------------------------------------------
 // 导入normalize
-@import "./base/_normalize.scss";
+@import './base/_normalize.scss';
 // 导入排版样式
-@import "./base/_typography.scss";
+@import './base/_typography.scss';
 // 导入助手样式
-@import "./helpers/_helpers.scss";
+@import './helpers/_helpers.scss';
 // ---------------------------------------------
 // 设置移动端字体(实现自适应)
 // ---------------------------------------------
@@ -33,16 +33,4 @@ body {
   height: 100%;
   border: 1px solid red;
   overflow: hidden;
-}
-
-
-// router-view动画
-.slide-enter-active,
-.slide-leave-active {
-  transition: .3s linear;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translate3d(100%, 0, 0);
 }

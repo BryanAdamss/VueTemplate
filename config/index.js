@@ -9,7 +9,19 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // * 经过下面配置 '/api/post'这个请求路径就会变成'http://jsonplaceholder.typicode.com/post'
+      // 代理所有/api开头的请求
+      '/api': {
+        target: 'http://jsonplaceholder.typicode.com', // 目标url
+        changeOrigin: true, // 更改host header的origin为target URL
+        pathRewrite: {
+          // 将最终url中匹配正则的部分替换成对应字符串
+          // 下面是将最终url中开头的/api替换成''
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

@@ -56,6 +56,12 @@ const ImgLazyLoadTest = resolve => {
   })
 }
 
+const AxiosTest = resolve => {
+  import('views/AxiosTest/AxiosTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -141,6 +147,14 @@ const router = new Router({
       component: ImgLazyLoadTest,
       meta: {
         title: '测试ImgLazyLoadTest'
+      }
+    },
+    {
+      path: '/axios-test',
+      name: 'AxiosTest',
+      component: AxiosTest,
+      meta: {
+        title: '测试AxiosTest'
       }
     }
   ]

@@ -11,6 +11,8 @@
                  class="c-LinkList-item">跳转ClickOutSideTest测试页</router-link>
     <router-link :to="{name:'ImgLazyLoadTest'}"
                  class="c-LinkList-item">跳转ImgLazyLoadTest测试页</router-link>
+    <router-link :to="{name:'AxiosTest'}"
+                 class="c-LinkList-item">跳转AxiosTest测试页</router-link>
   </div>
 </template>
 

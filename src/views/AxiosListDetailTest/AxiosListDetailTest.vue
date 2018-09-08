@@ -32,7 +32,7 @@ export default {
       // * 也考虑过拦截to.query带上scrollTop，但query是只读的，不允许修改
 
       // * 其实这里需要的仅仅是一个可以用来存储scrollTop的东西
-      // * 这里如果不将scrollTop挂载到$root上，也可以放到vuex中、localStorage等可跨组件存储的地方
+      // * 这里如果不将scrollTop挂载到$root上，也可以放到vuex中、localStorage、甚至window等可跨组件存储的地方
       this.$root.$_scrollTop = scrollTop
     }
     next()

@@ -68,6 +68,12 @@ const AxiosListDetailTest = resolve => {
   })
 }
 
+const InputAutoHeightTest = resolve => {
+  import('views/InputAutoHeightTest/InputAutoHeightTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -172,6 +178,14 @@ const router = new Router({
       },
       // * route.params 将会被设置为组件属性
       props: true
+    },
+    {
+      path: '/input-auto-height-test',
+      name: 'InputAutoHeightTest',
+      component: InputAutoHeightTest,
+      meta: {
+        title: '测试InputAutoHeightTest'
+      }
     }
   ]
 })

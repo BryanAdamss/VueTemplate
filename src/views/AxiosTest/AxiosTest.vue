@@ -34,6 +34,7 @@ export default {
     next(vm => {
       // * 如果是从AxiosListDetailTest页面返回，则读取绑定在$root上的scrollTop
       if (from.name === 'AxiosListDetailTest') {
+        alert('列表将被设置到原先位置')
         let lastScrollTop = vm.$root.$_scrollTop
         setTimeout(() => {
           // * 因为返回时有个300ms的动画，导致设置不生效，所以延迟了400ms，肉眼基本上看不到滚动过程

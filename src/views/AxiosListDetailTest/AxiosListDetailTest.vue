@@ -1,6 +1,7 @@
 <template>
   <div class="c-AxiosListDetailTest">
     从AxiosTest传递过来的id为{{id}}
+    <br> {{$route.query.fromRouteName}}的滚动位置:{{$route.query.scrollTop}}
   </div>
 </template>
 

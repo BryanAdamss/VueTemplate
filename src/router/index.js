@@ -74,6 +74,12 @@ const InputAutoHeightTest = resolve => {
   })
 }
 
+const BetterScrollTest = resolve => {
+  import('views/BetterScrollTest/BetterScrollTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -185,6 +191,14 @@ const router = new Router({
       component: InputAutoHeightTest,
       meta: {
         title: '测试InputAutoHeightTest'
+      }
+    },
+    {
+      path: '/better-scroll-test',
+      name: 'BetterScrollTest',
+      component: BetterScrollTest,
+      meta: {
+        title: '测试BetterScrollTest'
       }
     }
   ]

@@ -80,6 +80,12 @@ const BetterScrollTest = resolve => {
   })
 }
 
+const DragTest = resolve => {
+  import('views/DragTest/DragTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -199,6 +205,14 @@ const router = new Router({
       component: BetterScrollTest,
       meta: {
         title: '测试BetterScrollTest'
+      }
+    },
+    {
+      path: '/drag-test',
+      name: 'DragTest',
+      component: DragTest,
+      meta: {
+        title: '测试DragTest'
       }
     }
   ]

@@ -86,6 +86,12 @@ const DragTest = resolve => {
   })
 }
 
+const ModalTest = resolve => {
+  import('views/ModalTest/ModalTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -213,6 +219,14 @@ const router = new Router({
       component: DragTest,
       meta: {
         title: '测试DragTest'
+      }
+    },
+    {
+      path: '/modal-test',
+      name: 'ModalTest',
+      component: ModalTest,
+      meta: {
+        title: '测试ModalTest'
       }
     }
   ]

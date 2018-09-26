@@ -1,6 +1,16 @@
 <template>
   <div class="c-ModalTest">
-    <BaseModal ref="modal"></BaseModal>
+    <BaseModal ref="modal"
+               :shadowClickClose="true"
+               :emitShadowClickEvent="true"
+               @onShadowClick="onShadowClick"
+               :emitVisibleChangeEvent="true"
+               @onVisibleChange="onVisibleChange">
+      <div style="background-color:#fff">测试modal
+        <button type="button"
+                @click.stop="closeModal">&times;</button>
+      </div>
+    </BaseModal>
     <button @click="onButtonClick">展示modal</button>
   </div>
 </template>
@@ -19,7 +29,16 @@ export default {
   },
   methods: {
     onButtonClick() {
-      this.$refs.modal.isCanVisible = !this.$refs.modal.isCanVisible
+      this.$refs.modal.open()
+    },
+    onShadowClick() {
+      console.log('onShadowClick')
+    },
+    onVisibleChange(newVal, oldVal) {
+      console.log('onVisibleChange', newVal, oldVal)
+    },
+    closeModal() {
+      this.$refs.modal.close()
     }
   }
 }

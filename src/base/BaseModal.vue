@@ -20,14 +20,17 @@ export default {
   name: 'BaseModal',
   props: {
     emitShadowClickEvent: {
+      // * 是否派发点击阴影事件
       type: Boolean,
       default: false
     },
     emitVisibleChangeEvent: {
+      // * 是否派发visibleChange事件
       type: Boolean,
       default: false
     },
-    shadowClickClose: {
+    shadowClose: {
+      // * 点击阴影贯标
       type: Boolean,
       default: false
     }
@@ -63,11 +66,11 @@ export default {
         return
       }
 
-      if (this.shadowClickClose) {
+      if (this.shadowClose) {
         this.close()
       }
 
-      this.$emit('onShadowClick')
+      this.$emit('onShadowClick', e)
     }
   }
 }
@@ -86,6 +89,9 @@ export default {
   opacity: 0;
   transform: scale(1.15);
   // * 设置关闭时的过渡(根据google的用户体验原则，关闭要迅速，要快于开启)
+  // * 一般的经验法则为(https://developers.google.com/web/fundamentals/design-and-ux/animations/asymmetric-animation-timing)：
+  // * 对于用户交互触发的 UI 动画，例如视图变换或显示元素，采用快速前奏（短持续时间）和慢速结尾（较长持续时间）。
+  // * 对于由代码触发的 UI 动画，例如错误或模态视图，采用较慢前奏（较长持续时间）和快速结尾（短持续时间）。
   transition: transform 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946),
     opacity 0.1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
   // * 开启加速
@@ -103,6 +109,10 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    max-width: 80%;
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 </style>

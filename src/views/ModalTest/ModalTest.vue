@@ -1,7 +1,7 @@
 <template>
   <div class="c-ModalTest">
     <BaseModal ref="modal"
-               :shadowClickClose="true"
+               :shadowClose="true"
                :emitShadowClickEvent="true"
                @onShadowClick="onShadowClick"
                :emitVisibleChangeEvent="true"
@@ -9,6 +9,7 @@
       <div style="background-color:#fff">测试modal
         <button type="button"
                 @click.stop="closeModal">&times;</button>
+        <h1>sjdkfljaslkdfj</h1>
       </div>
     </BaseModal>
     <button @click="onButtonClick">展示modal</button>
@@ -31,8 +32,8 @@ export default {
     onButtonClick() {
       this.$refs.modal.open()
     },
-    onShadowClick() {
-      console.log('onShadowClick')
+    onShadowClick(e) {
+      console.log('onShadowClick', e)
     },
     onVisibleChange(newVal, oldVal) {
       console.log('onVisibleChange', newVal, oldVal)

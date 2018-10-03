@@ -21,6 +21,8 @@
                  class="c-LinkList-item">跳转DragTest测试页</router-link>
     <router-link :to="{name:'ModalTest'}"
                  class="c-LinkList-item">跳转ModalTest测试页</router-link>
+    <router-link :to="{name:'PopUpTest'}"
+                 class="c-LinkList-item">跳转PopUpTest测试页</router-link>
 
   </div>
 </template>

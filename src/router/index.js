@@ -92,6 +92,12 @@ const ModalTest = resolve => {
   })
 }
 
+const PopUpTest = resolve => {
+  import('views/PopUpTest/PopUpTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -227,6 +233,14 @@ const router = new Router({
       component: ModalTest,
       meta: {
         title: '测试ModalTest'
+      }
+    },
+    {
+      path: '/pop-up-test',
+      name: 'PopUpTest',
+      component: PopUpTest,
+      meta: {
+        title: '测试PopUpTest'
       }
     }
   ]

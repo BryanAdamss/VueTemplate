@@ -175,13 +175,6 @@ import BaseLoading from '@/base/BaseLoading'
 
 export default {
   name: 'BetterScrollTest',
-  data() {
-    return {
-      rawHtml,
-      stemContent
-    }
-  },
-
   methods: {
     onBeforeScroll() {
       conole.log('onBeforeScroll')

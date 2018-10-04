@@ -1,6 +1,6 @@
 <template>
   <div class="c-BasePopUp"
-       :class="[{'is-visible':isCanVisible},positionClass]"
+       :class="[positionClass,{'has-shadow':hasShadow},{'is-visible':isCanVisible}]"
        @click.stop="onShadowClick"
        ref="modal">
     <div class="c-BasePopUp-main">
@@ -40,6 +40,11 @@ export default {
       // * 位置
       type: String,
       default: 'center'
+    },
+    hasShadow: {
+      // * 是否展示阴影
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -99,7 +104,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  @include bgAlpha();
+  &.has-shadow {
+    @include bgAlpha();
+  }
   // * 屏蔽事件
   pointer-events: none;
   opacity: 0;

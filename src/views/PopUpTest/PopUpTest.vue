@@ -1,5 +1,5 @@
 <template>
-  <div class="c-ModalTest">
+  <div class="c-PopUpTest">
 
     <div>
       <button type="button"
@@ -29,13 +29,13 @@
 
 <script>
 /**
- * * ModalTest
+ * * PopUpTest
  */
 
 import BasePopUp from '@/base/BasePopUp'
 
 export default {
-  name: 'ModalTest',
+  name: 'PopUpTest',
   data() {
     return {
       buttons: [
@@ -55,7 +55,7 @@ export default {
           label: 'left'
         }
       ],
-      curModalName: ''
+      curPopUpName: ''
     }
   },
   components: {
@@ -63,9 +63,9 @@ export default {
   },
   methods: {
     onButtonClick(pos) {
-      const modalName = 'modal-' + pos
-      this.$refs[modalName][0].open()
-      this.curModalName = modalName
+      const popUpName = 'modal-' + pos
+      this.$refs[popUpName][0].open()
+      this.curPopUpName = popUpName
     },
     onShadowClick(e) {
       console.log('onShadowClick', e)
@@ -74,7 +74,7 @@ export default {
       console.log('onVisibleChange', newVal, oldVal)
     },
     closeModal() {
-      this.$refs[this.curModalName][0].close()
+      this.$refs[this.curPopUpName][0].close()
     }
   }
 }

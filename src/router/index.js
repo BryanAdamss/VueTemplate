@@ -104,6 +104,12 @@ const ToastTest = resolve => {
   })
 }
 
+const ConfirmTest = resolve => {
+  import('views/ConfirmTest/ConfirmTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -255,6 +261,14 @@ const router = new Router({
       component: ToastTest,
       meta: {
         title: '测试ToastTest'
+      }
+    },
+    {
+      path: '/confirm-test',
+      name: 'ConfirmTest',
+      component: ConfirmTest,
+      meta: {
+        title: '测试ConfirmTest'
       }
     }
   ]

@@ -32,7 +32,7 @@ export default {
       default: false
     },
     shadowClose: {
-      // * 点击阴影贯标
+      // * 点击阴影关闭
       type: Boolean,
       default: false
     },

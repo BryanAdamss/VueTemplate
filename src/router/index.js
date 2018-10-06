@@ -98,6 +98,12 @@ const PopUpTest = resolve => {
   })
 }
 
+const ToastTest = resolve => {
+  import('views/ToastTest/ToastTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -241,6 +247,14 @@ const router = new Router({
       component: PopUpTest,
       meta: {
         title: '测试PopUpTest'
+      }
+    },
+    {
+      path: '/toast-test',
+      name: 'ToastTest',
+      component: ToastTest,
+      meta: {
+        title: '测试ToastTest'
       }
     }
   ]

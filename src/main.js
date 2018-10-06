@@ -8,6 +8,14 @@ import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 import axios from '@/common/js/axios'
 
+// * 绑定toast到Vue原型上，方便使用this.$toast来调用
+import BaseToast from '@/base/BaseToast/BaseToast'
+Vue.use({
+  install: Vue => {
+    Vue.prototype.$toast = BaseToast
+  }
+})
+
 // * 开发环境启用vconsole
 if (process.env.NODE_ENV === 'development') {
   /* eslint-disable no-unused-vars */

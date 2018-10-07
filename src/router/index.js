@@ -9,7 +9,7 @@ import { STATUS_OK } from '@/api/config'
 
 // * 使用动态载入
 const Home = resolve => {
-  import('views/home/home').then(module => {
+  import('views/Home/Home').then(module => {
     resolve(module)
   })
 }

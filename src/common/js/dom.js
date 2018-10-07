@@ -113,7 +113,7 @@ export function copyToClipboard(str) {
 }
 
 /**
- * 滚动到顶部
+ * 滚动html到顶部
  */
 export function scrollToTop() {
   const c = document.documentElement.scrollTop || document.body.scrollTop

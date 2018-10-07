@@ -110,6 +110,12 @@ const ConfirmTest = resolve => {
   })
 }
 
+const GoToTopTest = resolve => {
+  import('views/GoToTopTest/GoToTopTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -269,6 +275,14 @@ const router = new Router({
       component: ConfirmTest,
       meta: {
         title: '测试ConfirmTest'
+      }
+    },
+    {
+      path: '/go-to-top-test',
+      name: 'GoToTopTest',
+      component: GoToTopTest,
+      meta: {
+        title: '测试GoToTopTest'
       }
     }
   ]

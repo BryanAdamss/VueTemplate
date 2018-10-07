@@ -27,6 +27,8 @@
                  class="c-LinkList-item">跳转ToastTest测试页</router-link>
     <router-link :to="{name:'ConfirmTest'}"
                  class="c-LinkList-item">跳转ConfirmTest测试页</router-link>
+    <router-link :to="{name:'GoToTopTest'}"
+                 class="c-LinkList-item">跳转GoToTopTest测试页</router-link>
 
   </div>
 </template>

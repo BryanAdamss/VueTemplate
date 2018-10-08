@@ -1,8 +1,12 @@
 <template>
-  <div class="c-Loading">
+  <div class="c-Loading"
+       :class="{'is-center':fixedAtCenter,'has-bg':hasBg}">
     <BaseLoadingSpinner :size="spinnerSize"></BaseLoadingSpinner>
-    <div class="c-Loading-text"
-         v-text="text"></div>
+    <slot>
+      <div class="c-Loading-text"
+           v-text="text">
+      </div>
+    </slot>
   </div>
 </template>
 <script>
@@ -21,6 +25,14 @@ export default {
     spinnerSize: {
       type: String,
       default: '26px'
+    },
+    fixedAtCenter: {
+      type: Boolean,
+      default: true
+    },
+    hasBg: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
@@ -28,13 +40,25 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .c-Loading {
   text-align: center;
+  &.is-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  &.has-bg {
+    @include bgAlpha(rgba(0, 0, 0, 0.8));
+    border-radius: 0.2em;
+    padding: 0.5em;
+  }
 }
 .c-Loading-text {
-  font-size: 16px;
-  color: #333;
+  font-size: 0.8em;
+  color: #fff;
+  @extend %textWrap;
 }
 </style>
 

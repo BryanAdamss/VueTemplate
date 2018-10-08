@@ -210,7 +210,7 @@ export default {
   props: {
     size: {
       type: String,
-      default: '26px'
+      default: '1em'
     }
   }
 }

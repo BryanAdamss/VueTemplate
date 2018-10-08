@@ -8,6 +8,7 @@
           @click.stop="onListItemClick(post)"
           class="c-List-item">{{post.id}}:{{post.title}}</li>
     </ul>
+    <BaseLoading v-show="isLoading"></BaseLoading>
   </div>
 </template>
 
@@ -15,6 +16,9 @@
 /**
  * * AxiosTest
  */
+
+import BaseLoading from '@/base/BaseLoading'
+
 export default {
   name: 'AxiosTest',
 
@@ -23,11 +27,16 @@ export default {
       posts: []
     }
   },
+  components: {
+    BaseLoading
+  },
   created() {
+    this.isLoading = true
     // * 测试axios
     this.$http.get('/api/posts').then(res => {
       console.log(res)
       this.posts = res
+      this.isLoading = false
     })
   },
   beforeRouteEnter(to, from, next) {

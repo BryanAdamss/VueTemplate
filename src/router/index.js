@@ -116,6 +116,12 @@ const GoToTopTest = resolve => {
   })
 }
 
+const ClickAreaExpandTest = resolve => {
+  import('views/ClickAreaExpandTest/ClickAreaExpandTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -283,6 +289,14 @@ const router = new Router({
       component: GoToTopTest,
       meta: {
         title: '测试GoToTopTest'
+      }
+    },
+    {
+      path: '/click-area-expand-test',
+      name: 'ClickAreaExpandTest',
+      component: ClickAreaExpandTest,
+      meta: {
+        title: '测试ClickAreaExpandTest'
       }
     }
   ]

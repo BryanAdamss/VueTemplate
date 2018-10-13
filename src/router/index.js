@@ -122,6 +122,12 @@ const ClickAreaExpandTest = resolve => {
   })
 }
 
+const DebounceThrottleTest = resolve => {
+  import('views/DebounceThrottleTest/DebounceThrottleTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -297,6 +303,14 @@ const router = new Router({
       component: ClickAreaExpandTest,
       meta: {
         title: '测试ClickAreaExpandTest'
+      }
+    },
+    {
+      path: '/debounce-throttle-test',
+      name: 'DebounceThrottleTest',
+      component: DebounceThrottleTest,
+      meta: {
+        title: '测试DebounceThrottleTest'
       }
     }
   ]

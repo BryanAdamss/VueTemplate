@@ -34,9 +34,16 @@ export function shuffle(arr) {
  * @returns {Function}
  */
 export function debounce(func, delay) {
-  let timer
-  delay = delay || 500
+  var timer,
+    firstTime = true,
+    delay = delay || 500
   return function(...args) {
+    if (firstTime) {
+      func.apply(this, args)
+      firstTime = false
+      return
+    }
+
     if (timer) {
       clearTimeout(timer)
     }

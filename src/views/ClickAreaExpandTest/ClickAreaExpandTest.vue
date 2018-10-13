@@ -1,7 +1,8 @@
 <template>
   <div class="c-ClickAreaExpandTest">
     <BaseClickAreaExpand class="c-MyBtn"
-                         tag="div">
+                         tag="div"
+                         @click.native="onClick">
       我的点击范围被扩大啦
     </BaseClickAreaExpand>
   </div>
@@ -21,7 +22,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log('我的点击范围被扩大啦')
+      alert('我的点击范围被扩大啦')
     }
   }
 }

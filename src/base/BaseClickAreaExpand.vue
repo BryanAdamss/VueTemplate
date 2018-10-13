@@ -1,16 +1,18 @@
-<template>
-  <div class="c-BaseClickAreaExpand">
-    <slot></slot>
-  </div>
-</template>
-
 <script>
 /**
  * * BaseClickAreaExpand
  */
 export default {
   name: 'BaseClickAreaExpand',
-  render() {}
+  render(h) {
+    return h(
+      this.$attrs.tag,
+      {
+        class: 'c-BaseClickAreaExpand'
+      },
+      [this.$slots.default]
+    )
+  }
 }
 </script>
 

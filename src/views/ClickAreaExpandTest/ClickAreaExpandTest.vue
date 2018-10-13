@@ -30,6 +30,7 @@ export default {
 <style scoped>
 .c-MyBtn {
   color: red;
+  margin-top: 50px;
 }
 </style>
 

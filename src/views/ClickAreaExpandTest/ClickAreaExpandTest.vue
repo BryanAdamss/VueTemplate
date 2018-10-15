@@ -31,6 +31,7 @@ export default {
 .c-MyBtn {
   color: red;
   margin-top: 50px;
+  cursor: pointer;
 }
 </style>
 

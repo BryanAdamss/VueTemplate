@@ -105,7 +105,7 @@
       <li>100</li>
     </ul>
 
-    <div @click="onClick">验证去抖debounce函数，请疯狂点我，并查看控制台</div>
+    <div @click="onClick">验证去抖debounce函数，请疯狂点我，并查看控制台(首次点击不会触发)</div>
   </div>
 </template>
 

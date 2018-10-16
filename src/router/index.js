@@ -128,6 +128,14 @@ const DebounceThrottleTest = resolve => {
   })
 }
 
+const PreventFastClickBtnTest = resolve => {
+  import('views/PreventFastClickBtnTest/PreventFastClickBtnTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -311,6 +319,14 @@ const router = new Router({
       component: DebounceThrottleTest,
       meta: {
         title: '测试DebounceThrottleTest'
+      }
+    },
+    {
+      path: '/prevent-fast-click-test',
+      name: 'PreventFastClickBtnTest',
+      component: PreventFastClickBtnTest,
+      meta: {
+        title: '测试PreventFastClickBtnTest'
       }
     }
   ]

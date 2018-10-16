@@ -33,6 +33,8 @@
                  class="c-LinkList-item">跳转ClickAreaExpandTest测试页</router-link>
     <router-link :to="{name:'DebounceThrottleTest'}"
                  class="c-LinkList-item">跳转DebounceThrottleTest测试页</router-link>
+    <router-link :to="{name:'PreventFastClickBtnTest'}"
+                 class="c-LinkList-item">跳转PreventFastClickBtnTest测试页</router-link>
 
   </div>
 </template>

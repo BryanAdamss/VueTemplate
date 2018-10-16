@@ -27,66 +27,89 @@ export function shuffle(arr) {
 
 /**
  * 去抖函数
- * 连续触发某一事件时，只在最后一次事件触发时的delay时间后才真正执行处理函数
+ * (underscore 1.8.2实现)
+ * http://www.css88.com/doc/underscore/docs/underscore.html
+ * 连续触发某一事件时，只在最后一次事件触发时的wait时间后才真正执行处理函数
  * 场景：搜索建议（停止输入后再触发请求）
- * @param func
- * @param delay
+ * @param func  需要延迟的函数
+ * @param wait  延迟时间
+ * @param immediate 是否需要在第一次触发时立即执行func
  * @returns {Function}
  */
-export function debounce(func, delay, firstTime) {
-  var timer,
-    firstTimeExecute = firstTime == null ? true : firstTime, // 首次触发是否执行
-    delayTime = delay || 500
-  return function(...args) {
-    if (firstTimeExecute) {
-      func.apply(this, args)
-      firstTimeExecute = false
-      return
+export function debounce(func, wait, immediate) {
+  var timeout, args, context, timestamp, result
+
+  var later = function() {
+    var last = new Date().getTime() - timestamp
+
+    if (last < wait && last >= 0) {
+      timeout = setTimeout(later, wait - last)
+    } else {
+      timeout = null
+      if (!immediate) {
+        result = func.apply(context, args)
+        if (!timeout) context = args = null
+      }
+    }
+  }
+
+  return function() {
+    context = this
+    args = arguments
+    timestamp = new Date().getTime()
+    var callNow = immediate && !timeout
+    if (!timeout) timeout = setTimeout(later, wait)
+    if (callNow) {
+      result = func.apply(context, args)
+      context = args = null
     }
 
-    if (timer) {
-      clearTimeout(timer)
-    }
-    timer = setTimeout(() => {
-      func.apply(this, args)
-    }, delayTime)
+    return result
   }
 }
 
 /**
  * 节流函数
- * 连续触发某一事件时，会自动间隔interval时间去执行一次处理函数
- * interval时间内重复触发的事件会被忽略
+ * (underscore 1.8.2实现)
+ * http://www.css88.com/doc/underscore/docs/underscore.html
+ * 连续触发某一事件时，会自动间隔wait时间去执行一次处理函数
+ * wait时间内重复触发的事件会被忽略
  * 节流会稀释函数的执行频率
  * 场景：resize、scroll时并不需要如此密集的事件触发频率
  * @param func
- * @param interval
+ * @param wait
+ * @param options
  * @returns {Function}
  */
-export function throttle(fn, interval, firstTime) {
-  var _self = fn, //保存需要被延迟的函数
-    firstTimeExecute = firstTime == null ? true : firstTime, // 首次触发是否执行
-    intervalTime = interval || 500, // 间隔调用时间，默认500毫秒
-    timer // 定时器
+export function throttle(func, wait, options) {
+  var context, args, result
+  var timeout = null
+  var previous = 0
+  if (!options) options = {}
+  var later = function() {
+    previous = options.leading === false ? 0 : new Date().getTime()
+    timeout = null
+    result = func.apply(context, args)
+    if (!timeout) context = args = null
+  }
   return function() {
-    var args = arguments,
-      _me = this
-    if (firstTimeExecute) {
-      // 如果第一次，则无需延迟，直接调用
-      _self.apply(_me, args)
-      return (firstTimeExecute = false)
+    var now = new Date().getTime()
+    if (!previous && options.leading === false) previous = now
+    var remaining = wait - (now - previous)
+    context = this
+    args = arguments
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout)
+        timeout = null
+      }
+      previous = now
+      result = func.apply(context, args)
+      if (!timeout) context = args = null
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining)
     }
-
-    if (timer) {
-      // 如果定时器存在，说明前一次执行还没有完成
-      return false
-    }
-    timer = setTimeout(function() {
-      // 延迟intervalTime后执行
-      clearTimeout(timer)
-      timer = null
-      _self.apply(_me, args)
-    }, intervalTime)
+    return result
   }
 }
 

@@ -127,9 +127,13 @@ export default {
     },
     onClick() {
       if (!this.trueOnClick) {
-        this.trueOnClick = this.$debounce(() => {
-          console.count('onClick')
-        }, 1000)
+        this.trueOnClick = this.$debounce(
+          () => {
+            console.count('onClick')
+          },
+          1000,
+          false // 第一次点击不需要立即执行
+        )
       }
 
       this.trueOnClick()

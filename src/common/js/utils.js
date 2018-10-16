@@ -33,14 +33,14 @@ export function shuffle(arr) {
  * @param delay
  * @returns {Function}
  */
-export function debounce(func, delay) {
-  var timer,
-    firstTime = true,
-    delay = delay || 500
+export function debounce(func, delay, firstTime) {
+  var timer
+  var firstTimeExecute = firstTime == null ? true : firstTime // 首次触发是否执行
+  delay = delay || 500
   return function(...args) {
-    if (firstTime) {
+    if (firstTimeExecute) {
       func.apply(this, args)
-      firstTime = false
+      firstTimeExecute = false
       return
     }
 
@@ -63,19 +63,20 @@ export function debounce(func, delay) {
  * @param interval
  * @returns {Function}
  */
-export function throttle(fn, interval) {
+export function throttle(fn, interval, firstTime) {
   var _self = fn, //保存需要被延迟的函数
-    firstTime = true, // 是否首次调用
+    firstTimeExecute = firstTime == null ? true : firstTime, // 首次触发是否执行
     intervalTime = interval || 500, // 间隔调用时间，默认500毫秒
     timer // 定时器
   return function() {
     var args = arguments,
       _me = this
-    if (firstTime) {
+    if (firstTimeExecute) {
       // 如果第一次，则无需延迟，直接调用
       _self.apply(_me, args)
-      return (firstTime = false)
+      return (firstTimeExecute = false)
     }
+
     if (timer) {
       // 如果定时器存在，说明前一次执行还没有完成
       return false

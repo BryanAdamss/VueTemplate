@@ -34,9 +34,9 @@ export function shuffle(arr) {
  * @returns {Function}
  */
 export function debounce(func, delay, firstTime) {
-  var timer
-  var firstTimeExecute = firstTime == null ? true : firstTime // 首次触发是否执行
-  delay = delay || 500
+  var timer,
+    firstTimeExecute = firstTime == null ? true : firstTime, // 首次触发是否执行
+    delayTime = delay || 500
   return function(...args) {
     if (firstTimeExecute) {
       func.apply(this, args)
@@ -49,7 +49,7 @@ export function debounce(func, delay, firstTime) {
     }
     timer = setTimeout(() => {
       func.apply(this, args)
-    }, delay)
+    }, delayTime)
   }
 }
 

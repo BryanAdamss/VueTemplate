@@ -10,7 +10,7 @@ export default {
       {
         class: 'c-BaseClickAreaExpand'
       },
-      [this.$slots.default]
+      this.$slots.default // * 返回一个VNode数组
     )
   }
 }

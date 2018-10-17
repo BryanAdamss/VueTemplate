@@ -10,7 +10,6 @@ export default {
   functional: true, // * 函数式组件(无响应式数据，无this)
   render(h, context) {
     let { props, children, data, listeners } = context
-    console.log(context)
 
     // * 组件上不需要显示tag特性
     delete data.attrs.tag

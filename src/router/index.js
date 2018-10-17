@@ -136,6 +136,12 @@ const PreventFastClickBtnTest = resolve => {
   )
 }
 
+const ListTransitionTest = resolve => {
+  import('views/ListTransitionTest/ListTransitionTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -327,6 +333,14 @@ const router = new Router({
       component: PreventFastClickBtnTest,
       meta: {
         title: '测试PreventFastClickBtnTest'
+      }
+    },
+    {
+      path: '/list-transition-test',
+      name: 'ListTransitionTest',
+      component: ListTransitionTest,
+      meta: {
+        title: '测试ListTransitionTest'
       }
     }
   ]

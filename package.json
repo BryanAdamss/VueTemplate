@@ -14,6 +14,7 @@
     "axios": "^0.18.0",
     "better-scroll": "^1.12.6",
     "fastclick": "^1.0.6",
+    "velocity-animate": "^1.5.2",
     "vue": "^2.5.2",
     "vue-lazyload": "^1.2.2",
     "vue-router": "^3.0.1",

@@ -4,19 +4,26 @@
  */
 export default {
   name: 'BaseClickAreaExpand',
-  render(h) {
+  functional: true,
+  render(h, context) {
+    let { data, props, children } = context
+
+    // * 组件上不需要显示tag特性
+    delete data.attrs.tag
+
     return h(
-      this.$attrs.tag,
+      props.tag,
       {
+        ...data,
         class: 'c-BaseClickAreaExpand'
       },
-      this.$slots.default // * 返回一个VNode数组
+      children // * 返回一个VNode数组
     )
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .c-BaseClickAreaExpand {
   position: relative;
   &::after {

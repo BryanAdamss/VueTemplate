@@ -2,7 +2,7 @@
   <div class="c-ClickAreaExpandTest">
     <BaseClickAreaExpand class="c-MyBtn"
                          tag="div"
-                         @click.native="onClick">
+                         @click="onClick">
       我的点击范围被扩大啦
     </BaseClickAreaExpand>
   </div>
@@ -27,6 +27,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .c-MyBtn {
   color: red;

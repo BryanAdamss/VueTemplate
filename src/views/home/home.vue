@@ -1,6 +1,5 @@
 <template>
   <div class="c-Home">
-    <h1>Home</h1>
     <LinkList></LinkList>
     <router-link :to="{name:'HomeChild1'}"
                  class="c-Link">ToHomeChild1</router-link>
@@ -26,11 +25,6 @@ import LinkList from '@/components/LinkList'
 export default {
   // * 组件需命名，采用帕斯卡风格
   name: 'Home',
-  data() {
-    return {
-      msg: 'Welcome to home page!'
-    }
-  },
   components: {
     BaseTransitionSlide,
     LinkList

@@ -13,7 +13,7 @@
         <div class="c-PullUp">
           <div class="c-PullUp-spinner"
                v-show="pullUpOptions.isPullUpLoading">
-            <BaseLoadingSpinner></BaseLoadingSpinner>
+            <BaseLoadingSpinner :size="'16px'"></BaseLoadingSpinner>
           </div>
           <div class="c-PullUp-text"
                v-show="!pullUpOptions.isPullUpLoading">
@@ -30,7 +30,7 @@
       <div class="c-PullDown">
         <div class="c-PullDown-spinner"
              v-show="pullDownOptions.isPullingDown">
-          <BaseLoadingSpinner></BaseLoadingSpinner>
+          <BaseLoadingSpinner :size="'16px'"></BaseLoadingSpinner>
         </div>
         <div class="c-PullDown-text"
              :class="{'is-overPullDown':pullDownOptions.isOverPullDown}"

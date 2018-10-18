@@ -4,6 +4,9 @@
     <br>
     <button type="button"
             @click="sendMsg">发消息给son2</button>
+    <button type="button"
+            @click="sendMsg2"
+            style="margin-top:10px;">发消息给parent</button>
   </div>
 </template>
 
@@ -18,6 +21,14 @@ export default {
       this.$bus.$emit(
         'grandson1Msg',
         `我是来自EventBusGrandson1的消息${(Math.random() * 10).toFixed(2)}`
+      )
+    },
+    sendMsg2() {
+      this.$bus.$emit(
+        'grandson1MsgToParent',
+        `我是来自EventBusGrandson1要发送给parent的消息${(
+          Math.random() * 10
+        ).toFixed(2)}`
       )
     }
   }

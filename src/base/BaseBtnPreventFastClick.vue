@@ -31,7 +31,6 @@ export default {
         }
       : data
 
-    console.log(newData)
     return h(props.tag, newData, children)
   }
 }

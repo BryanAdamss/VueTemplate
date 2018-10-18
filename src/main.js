@@ -22,6 +22,8 @@ Vue.use({
     Vue.prototype.$http = axios
     // * 绑定toast到Vue原型上，方便使用this.$toast来调用
     Vue.prototype.$toast = BaseToast
+    // * 绑定bus到Vue原型上，方便使用this.$bus来调用
+    Vue.prototype.$bus = new Vue()
   }
 })
 

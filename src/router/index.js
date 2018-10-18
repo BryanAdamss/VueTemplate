@@ -147,6 +147,11 @@ const LayoutTest = resolve => {
     resolve(module)
   })
 }
+const EventBusTest = resolve => {
+  import('views/EventBusTest/EventBusTest').then(module => {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -355,6 +360,14 @@ const router = new Router({
       component: LayoutTest,
       meta: {
         title: '测试LayoutTest'
+      }
+    },
+    {
+      path: '/event-bus-test',
+      name: 'EventBusTest',
+      component: EventBusTest,
+      meta: {
+        title: '测试EventBusTest'
       }
     }
   ]

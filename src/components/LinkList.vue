@@ -37,6 +37,8 @@
                  class="c-LinkList-item">跳转PreventFastClickBtnTest测试页</router-link>
     <router-link :to="{name:'ListTransitionTest'}"
                  class="c-LinkList-item">跳转ListTransitionTest测试页</router-link>
+    <router-link :to="{name:'LayoutTest'}"
+                 class="c-LinkList-item">跳转LayoutTest测试页</router-link>
   </div>
 </template>
 

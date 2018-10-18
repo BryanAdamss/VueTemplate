@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style scoped>
+/**
+ * ! c-BaseLayoutVertical节点的父节点需要有高度
+ */
 .c-BaseLayoutVertical {
   display: flex;
   flex-direction: column;

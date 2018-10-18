@@ -142,6 +142,12 @@ const ListTransitionTest = resolve => {
   })
 }
 
+const LayoutTest = resolve => {
+  import('views/LayoutTest/LayoutTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -341,6 +347,14 @@ const router = new Router({
       component: ListTransitionTest,
       meta: {
         title: '测试ListTransitionTest'
+      }
+    },
+    {
+      path: '/layout-test',
+      name: 'LayoutTest',
+      component: LayoutTest,
+      meta: {
+        title: '测试LayoutTest'
       }
     }
   ]

@@ -1,7 +1,17 @@
 <template>
-  <div class="c-LinkList">
+  <ul class="c-LinkList">
     <!--路由跳转采用命名形式跳转-->
-    <router-link :to="{name:'Home'}"
+    <!-- exact标识路由样式匹配采用精准模式 -->
+    <router-link v-for="(route,index) in routes"
+                 :key="index"
+                 :to="{name:route.name}"
+                 exact
+                 tag="li"
+                 class="c-LinkList-item">
+      跳转{{route.name}}
+    </router-link>
+
+    <!-- <router-link :to="{name:'Home'}"
                  class="c-LinkList-item">跳转主页</router-link>
     <router-link :to="{name:'UserCenter'}"
                  class="c-LinkList-item">跳转个人中心</router-link>
@@ -39,7 +49,9 @@
                  class="c-LinkList-item">跳转ListTransitionTest测试页</router-link>
     <router-link :to="{name:'LayoutTest'}"
                  class="c-LinkList-item">跳转LayoutTest测试页</router-link>
-  </div>
+    <router-link :to="{name:'EventBusTest'}"
+                 class="c-LinkList-item">跳转EventBusTest测试页</router-link> -->
+  </ul>
 </template>
 
 <script>
@@ -47,14 +59,36 @@
  * * LinkList
  */
 export default {
-  name: 'LinkList'
+  name: 'LinkList',
+  data() {
+    return {
+      routes: []
+    }
+  },
+  created() {
+    let { routes } = this.$router.options
+    console.log(routes)
+    // * 剔除
+    // * 含有重定向路由
+    // * AxiosListDetailTest路由
+    // * Login路由
+    routes = routes.filter(route => {
+      return (
+        !route.redirect &&
+        route.name !== 'AxiosListDetailTest' &&
+        route.name !== 'Login'
+      )
+    })
+
+    this.routes = routes
+  }
 }
 </script>
 
 <style scoped lang="scss">
 .c-LinkList {
   @at-root #{&}-item {
-    color: green;
+    color: #333;
     @at-root #{&}.router-link-active {
       color: red;
     }

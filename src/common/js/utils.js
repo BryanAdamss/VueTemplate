@@ -12,7 +12,7 @@ function getRandomInt(min, max) {
 /**
  * 随机打乱一个数组
  * @param arr
- * @returns {*}
+ * @returns {Array}
  */
 export function shuffle(arr) {
   let _arr = arr.slice()

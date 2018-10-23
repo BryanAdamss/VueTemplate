@@ -31,9 +31,9 @@ export function shuffle(arr) {
  * http://www.css88.com/doc/underscore/docs/underscore.html
  * 连续触发某一事件时，只在最后一次事件触发时的wait时间后才真正执行处理函数
  * 场景：搜索建议（停止输入后再触发请求）
- * @param func  需要延迟的函数
- * @param wait  延迟时间
- * @param immediate 是否需要在第一次触发时立即执行func
+ * @param   {Function}  func  需要延迟的函数
+ * @param   {Number}    wait  延迟时间
+ * @param   {Boolean}   immediate 是否需要在第一次触发时立即执行func
  * @returns {Function}
  */
 export function debounce(func, wait, immediate) {
@@ -76,9 +76,9 @@ export function debounce(func, wait, immediate) {
  * wait时间内重复触发的事件会被忽略
  * 节流会稀释函数的执行频率
  * 场景：resize、scroll时并不需要如此密集的事件触发频率
- * @param func
- * @param wait
- * @param options
+ * @param   {Function}  func
+ * @param   {Number}    wait
+ * @param   {Boolean}   options
  * @returns {Function}
  */
 export function throttle(func, wait, options) {

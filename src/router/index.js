@@ -147,8 +147,15 @@ const LayoutTest = resolve => {
     resolve(module)
   })
 }
+
 const EventBusTest = resolve => {
   import('views/EventBusTest/EventBusTest').then(module => {
+    resolve(module)
+  })
+}
+
+const LoadingTest = resolve => {
+  import('views/LoadingTest/LoadingTest').then(module => {
     resolve(module)
   })
 }
@@ -368,6 +375,14 @@ const router = new Router({
       component: EventBusTest,
       meta: {
         title: '测试EventBusTest'
+      }
+    },
+    {
+      path: '/loading-test',
+      name: 'LoadingTest',
+      component: LoadingTest,
+      meta: {
+        title: '测试LoadingTest'
       }
     }
   ]

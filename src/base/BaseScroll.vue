@@ -94,6 +94,13 @@ export default {
       type: [Boolean, Object],
       default: false
     },
+    // * 是否保留原生滚动(默认不保留，使用模拟滚动)
+    keepNativeScrollDirection: {
+      validator: function(value) {
+        // * 值必须匹配下列字符串中的一个
+        return ['', 'vertical', 'horizontal'].indexOf(value) !== -1
+      }
+    },
 
     // * ---------是否派发相应事件的配置---------
     // * 是否监听beforeScroll事件
@@ -272,7 +279,8 @@ export default {
         pullUpLoad:
           typeof this.pullUpLoad === 'boolean'
             ? { threshold: 40 }
-            : this.pullUpLoad
+            : this.pullUpLoad,
+        eventPassthrough: this.keepNativeScrollDirection
       }
 
       // * 创建一个新scroll实例

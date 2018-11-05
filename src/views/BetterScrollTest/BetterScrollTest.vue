@@ -170,8 +170,8 @@
 </template>
 
 <script>
-import BaseScroll from '@/base/BaseScroll'
-import BaseLoading from '@/base/BaseLoading'
+import BaseScroll from 'Base/BaseScroll'
+import BaseLoading from 'Base/BaseLoading'
 
 export default {
   name: 'BetterScrollTest',

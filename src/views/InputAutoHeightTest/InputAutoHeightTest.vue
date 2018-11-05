@@ -10,7 +10,7 @@
  * * c-InputAutoHeightTest
  */
 
-import AutoHeight from '@/directives/auto-height'
+import AutoHeight from 'Directives/auto-height'
 export default {
   name: 'c-InputAutoHeightTest',
   directives: {

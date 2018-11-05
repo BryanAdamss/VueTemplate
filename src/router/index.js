@@ -1,135 +1,135 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { STATUS_OK } from '@/api/config'
+import { STATUS_OK } from 'Api/config'
 
 // * 同步导入（可优化成下面的动态导入）
-// import Home from 'views/home/home'
-// import UserCenter from 'views/UserCenter/UserCenter'
+// import Home from 'Views/home/home'
+// import UserCenter from 'Views/UserCenter/UserCenter'
 
 // * 使用动态载入
 const Home = resolve => {
-  import('views/Home/Home').then(module => {
+  import('Views/Home/Home').then(module => {
     resolve(module)
   })
 }
 
 const HomeChild1 = resolve => {
-  import('views/Home/HomeChild1').then(module => {
+  import('Views/Home/HomeChild1').then(module => {
     resolve(module)
   })
 }
 
 const HomeChild2 = resolve => {
-  import('views/Home/HomeChild2').then(module => {
+  import('Views/Home/HomeChild2').then(module => {
     resolve(module)
   })
 }
 
 const UserCenter = resolve => {
-  import('views/UserCenter/UserCenter').then(module => {
+  import('Views/UserCenter/UserCenter').then(module => {
     resolve(module)
   })
 }
 
 const Login = resolve => {
-  import('views/Login/Login').then(module => {
+  import('Views/Login/Login').then(module => {
     resolve(module)
   })
 }
 
 const VuexTest = resolve => {
-  import('views/VuexTest/VuexTest').then(module => {
+  import('Views/VuexTest/VuexTest').then(module => {
     resolve(module)
   })
 }
 
 const ClickOutSideTest = resolve => {
-  import('views/ClickOutSideTest/ClickOutSideTest').then(module => {
+  import('Views/ClickOutSideTest/ClickOutSideTest').then(module => {
     resolve(module)
   })
 }
 
 const ImgLazyLoadTest = resolve => {
-  import('views/ImgLazyLoadTest/ImgLazyLoadTest').then(module => {
+  import('Views/ImgLazyLoadTest/ImgLazyLoadTest').then(module => {
     resolve(module)
   })
 }
 
 const AxiosTest = resolve => {
-  import('views/AxiosTest/AxiosTest').then(module => {
+  import('Views/AxiosTest/AxiosTest').then(module => {
     resolve(module)
   })
 }
 
 const AxiosListDetailTest = resolve => {
-  import('views/AxiosListDetailTest/AxiosListDetailTest').then(module => {
+  import('Views/AxiosListDetailTest/AxiosListDetailTest').then(module => {
     resolve(module)
   })
 }
 
 const InputAutoHeightTest = resolve => {
-  import('views/InputAutoHeightTest/InputAutoHeightTest').then(module => {
+  import('Views/InputAutoHeightTest/InputAutoHeightTest').then(module => {
     resolve(module)
   })
 }
 
 const BetterScrollTest = resolve => {
-  import('views/BetterScrollTest/BetterScrollTest').then(module => {
+  import('Views/BetterScrollTest/BetterScrollTest').then(module => {
     resolve(module)
   })
 }
 
 const DragTest = resolve => {
-  import('views/DragTest/DragTest').then(module => {
+  import('Views/DragTest/DragTest').then(module => {
     resolve(module)
   })
 }
 
 const ModalTest = resolve => {
-  import('views/ModalTest/ModalTest').then(module => {
+  import('Views/ModalTest/ModalTest').then(module => {
     resolve(module)
   })
 }
 
 const PopUpTest = resolve => {
-  import('views/PopUpTest/PopUpTest').then(module => {
+  import('Views/PopUpTest/PopUpTest').then(module => {
     resolve(module)
   })
 }
 
 const ToastTest = resolve => {
-  import('views/ToastTest/ToastTest').then(module => {
+  import('Views/ToastTest/ToastTest').then(module => {
     resolve(module)
   })
 }
 
 const ConfirmTest = resolve => {
-  import('views/ConfirmTest/ConfirmTest').then(module => {
+  import('Views/ConfirmTest/ConfirmTest').then(module => {
     resolve(module)
   })
 }
 
 const GoToTopTest = resolve => {
-  import('views/GoToTopTest/GoToTopTest').then(module => {
+  import('Views/GoToTopTest/GoToTopTest').then(module => {
     resolve(module)
   })
 }
 
 const ClickAreaExpandTest = resolve => {
-  import('views/ClickAreaExpandTest/ClickAreaExpandTest').then(module => {
+  import('Views/ClickAreaExpandTest/ClickAreaExpandTest').then(module => {
     resolve(module)
   })
 }
 
 const DebounceThrottleTest = resolve => {
-  import('views/DebounceThrottleTest/DebounceThrottleTest').then(module => {
+  import('Views/DebounceThrottleTest/DebounceThrottleTest').then(module => {
     resolve(module)
   })
 }
 
 const PreventFastClickBtnTest = resolve => {
-  import('views/PreventFastClickBtnTest/PreventFastClickBtnTest').then(
+  import('Views/PreventFastClickBtnTest/PreventFastClickBtnTest').then(
     module => {
       resolve(module)
     }
@@ -137,25 +137,25 @@ const PreventFastClickBtnTest = resolve => {
 }
 
 const ListTransitionTest = resolve => {
-  import('views/ListTransitionTest/ListTransitionTest').then(module => {
+  import('Views/ListTransitionTest/ListTransitionTest').then(module => {
     resolve(module)
   })
 }
 
 const LayoutTest = resolve => {
-  import('views/LayoutTest/LayoutTest').then(module => {
+  import('Views/LayoutTest/LayoutTest').then(module => {
     resolve(module)
   })
 }
 
 const EventBusTest = resolve => {
-  import('views/EventBusTest/EventBusTest').then(module => {
+  import('Views/EventBusTest/EventBusTest').then(module => {
     resolve(module)
   })
 }
 
 const LoadingTest = resolve => {
-  import('views/LoadingTest/LoadingTest').then(module => {
+  import('Views/LoadingTest/LoadingTest').then(module => {
     resolve(module)
   })
 }

@@ -18,9 +18,9 @@
  * * Home
  */
 
-import BaseTransitionSlide from '@/base/BaseTransitionSlide'
+import BaseTransitionSlide from 'Base/BaseTransitionSlide'
 
-import LinkList from '@/components/LinkList'
+import LinkList from 'Components/LinkList'
 
 export default {
   // * 组件需命名，采用帕斯卡风格

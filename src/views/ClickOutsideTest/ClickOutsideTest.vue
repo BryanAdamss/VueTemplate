@@ -11,7 +11,7 @@
  */
 
 // * clickOutSide指令
-import clickoutside from '@/directives/click-outside'
+import clickoutside from 'Directives/click-outside'
 
 export default {
   name: 'ClickOutsideTest',

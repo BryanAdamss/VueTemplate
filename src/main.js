@@ -8,10 +8,10 @@ import App from './App'
 import store from './store'
 import router from './router'
 
-import BaseToast from '@/base/BaseToast/BaseToast'
+import BaseToast from 'Base/BaseToast/BaseToast'
 
-import axios from '@/common/js/axios'
-import { debounce, throttle } from '@/common/js/utils'
+import axios from 'Common/js/axios'
+import { debounce, throttle } from 'Common/js/utils'
 
 Vue.use({
   install: Vue => {
@@ -42,7 +42,7 @@ fastclick.attach(document.body)
 
 // 注册lazyload并配置默认图
 Vue.use(VueLazyload, {
-  loading: require('common/img/loading.gif')
+  loading: require('Common/img/loading.gif')
 })
 
 /* eslint-disable no-new */

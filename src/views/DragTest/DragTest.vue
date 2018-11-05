@@ -12,7 +12,7 @@
  * * DragTest
  */
 
-import Drag from '@/directives/drag'
+import Drag from 'Directives/drag'
 export default {
   name: 'DragTest',
   directives: {

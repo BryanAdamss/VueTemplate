@@ -48,8 +48,8 @@
 /**
  * * LayoutTest
  */
-import BaseLayoutHorizontal from '@/base/BaseLayoutHorizontal'
-import BaseLayoutVertical from '@/base/BaseLayoutVertical'
+import BaseLayoutHorizontal from 'Base/BaseLayoutHorizontal'
+import BaseLayoutVertical from 'Base/BaseLayoutVertical'
 
 export default {
   name: 'LayoutTest',

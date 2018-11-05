@@ -29,7 +29,7 @@
  * * BaseConfirm
  */
 
-import BasePopUp from '@/base/BasePopUp'
+import BasePopUp from 'Base/BasePopUp'
 
 export default {
   name: 'BaseConfirm',

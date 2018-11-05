@@ -9,7 +9,7 @@
  * * LoadingTest
  */
 
-import BaseLoading from '@/base/BaseLoading'
+import BaseLoading from 'Base/BaseLoading'
 
 export default {
   name: 'LoadingTest',

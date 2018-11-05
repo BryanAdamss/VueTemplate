@@ -45,7 +45,7 @@
 
 <script>
 import BScroll from 'better-scroll'
-import BaseLoadingSpinner from '@/base/BaseLoadingSpinner'
+import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
 
 /**
  * @description 基础滚动组件

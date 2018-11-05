@@ -16,7 +16,7 @@
  * * ListTransitionTest
  */
 
-import BaseListTransition from '@/base/BaseListTransition'
+import BaseListTransition from 'Base/BaseListTransition'
 export default {
   name: 'ListTransitionTest',
   data() {

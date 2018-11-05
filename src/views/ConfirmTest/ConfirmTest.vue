@@ -17,7 +17,7 @@
  * * ConfirmTest
  */
 
-import BaseConfirm from '@/base/BaseConfirm'
+import BaseConfirm from 'Base/BaseConfirm'
 
 export default {
   name: 'ConfirmTest',

@@ -13,7 +13,7 @@
  * * ClickAreaExpandTest
  */
 
-import BaseClickAreaExpand from '@/base/BaseClickAreaExpand'
+import BaseClickAreaExpand from 'Base/BaseClickAreaExpand'
 
 export default {
   name: 'ClickAreaExpandTest',

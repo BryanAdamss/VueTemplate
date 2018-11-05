@@ -21,7 +21,7 @@
  * * ModalTest
  */
 
-import BaseModal from '@/base/BaseModal'
+import BaseModal from 'Base/BaseModal'
 
 export default {
   name: 'ModalTest',

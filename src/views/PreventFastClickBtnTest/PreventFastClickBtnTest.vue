@@ -16,7 +16,7 @@
  * * PreventFastClickBtnTest
  */
 
-import BaseBtnPreventFastClick from '@/base/BaseBtnPreventFastClick'
+import BaseBtnPreventFastClick from 'Base/BaseBtnPreventFastClick'
 
 export default {
   name: 'PreventFastClickBtnTest',

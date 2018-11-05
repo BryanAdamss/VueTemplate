@@ -13,7 +13,7 @@
 /**
  * * TopBar
  */
-import BaseLayoutHorizontal from '@/base/BaseLayoutHorizontal'
+import BaseLayoutHorizontal from 'Base/BaseLayoutHorizontal'
 
 export default {
   name: 'TopBar',

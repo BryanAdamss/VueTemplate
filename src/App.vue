@@ -18,10 +18,10 @@
 /**
  * * App
  */
-import BaseTransitionSlide from '@/base/BaseTransitionSlide'
-import BaseLayoutVertical from '@/base/BaseLayoutVertical'
+import BaseTransitionSlide from 'Base/BaseTransitionSlide'
+import BaseLayoutVertical from 'Base/BaseLayoutVertical'
 
-import TopBar from '@/components/TopBar'
+import TopBar from 'Components/TopBar'
 
 export default {
   name: 'App',
@@ -47,5 +47,5 @@ export default {
 </script>
 
 <!--全局公用样式-->
-<style lang="scss" src="sass/common-m.scss"></style>
+<style lang="scss" src="Sass/common-m.scss"></style>
  

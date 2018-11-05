@@ -3,7 +3,7 @@
  * * BaseBtnPreventFastClick
  */
 
-import { debounce } from '@/common/js/utils'
+import { debounce } from 'Common/js/utils'
 
 export default {
   name: 'BaseBtnPreventFastClick',

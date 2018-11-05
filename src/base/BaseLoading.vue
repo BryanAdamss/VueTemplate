@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import BaseLoadingSpinner from '@/base/BaseLoadingSpinner'
+import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
 
 /**
  * @description 基础Loading

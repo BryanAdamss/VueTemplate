@@ -113,7 +113,7 @@
  * * GoToTopTest
  */
 
-import GoToTop from '@/directives/go-to-top'
+import GoToTop from 'Directives/go-to-top'
 export default {
   name: 'GoToTopTest',
   directives: {

@@ -1,4 +1,7 @@
-// actions.js用来定义actions
+/**
+ * * actions.js用来定义全局的actions
+ */
+
 // import * as types from './mutation-types'
 
 // export const foo = function ({commit}) {

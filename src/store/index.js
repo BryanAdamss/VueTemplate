@@ -1,4 +1,7 @@
-// vuex入口文件
+/**
+ * * vuex入口文件
+ */
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'

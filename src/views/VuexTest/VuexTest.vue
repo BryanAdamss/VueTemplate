@@ -15,7 +15,7 @@ import { mapGetters, mapMutations } from 'vuex'
 import store from './store'
 
 export default {
-  name: 'App',
+  name: 'VuexTest',
   data() {
     return {
       count: 0
@@ -23,13 +23,13 @@ export default {
   },
   computed: {
     ...mapGetters(['testObj']),
-    ...mapGetters('VuexTest', ['testName'])
+    ...mapGetters('VuexTest/moduleA', ['getTestName'])
   },
-  beforeRouterEnter(to, from, next) {
+  beforeRouteEnter(to, from, next) {
     store.install()
     next()
   },
-  beforeRouterLeave(to, from, next) {
+  beforeRouteLeave(to, from, next) {
     store.uninstall()
     next()
   },

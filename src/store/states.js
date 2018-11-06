@@ -3,7 +3,9 @@
  */
 
 const states = {
-  testObj: {}
+  testObj: {
+    name: 'test'
+  }
 }
 
 export default states

@@ -3,6 +3,7 @@
  */
 
 export default {
+  namespaced: true,
   state: {
     testName: '我是moduleA'
   },

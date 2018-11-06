@@ -9,7 +9,10 @@
 /**
  * * VuexTest
  */
+
 import { mapGetters, mapMutations } from 'vuex'
+
+import store from './store'
 
 export default {
   name: 'App',
@@ -19,7 +22,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['testObj'])
+    ...mapGetters(['testObj']),
+    ...mapGetters('VuexTest', ['testName'])
+  },
+  beforeRouterEnter(to, from, next) {
+    store.install()
+    next()
+  },
+  beforeRouterLeave(to, from, next) {
+    store.uninstall()
+    next()
   },
   methods: {
     change() {

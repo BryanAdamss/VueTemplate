@@ -41,6 +41,7 @@ module.exports = {
       Base: resolve('src/base'),
       Sass: resolve('src/sass'),
       Views: resolve('src/views'),
+      Store: resolve('src/store'),
       Common: resolve('src/common'),
       Directives: resolve('src/Directives'),
       Components: resolve('src/components')

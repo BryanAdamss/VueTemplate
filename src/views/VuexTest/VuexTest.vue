@@ -20,7 +20,12 @@
  * * VuexTest
  */
 
-import { createNamespacedHelpers } from 'vuex'
+import {
+  mapGetters,
+  mapMutations,
+  mapActions,
+  createNamespacedHelpers
+} from 'vuex'
 
 const {
   mapGetters: mapGettersForModuleA,

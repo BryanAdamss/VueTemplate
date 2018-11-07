@@ -5,25 +5,26 @@
 export default {
   namespaced: true,
   state: {
-    testName: '我是moduleA'
+    moduleAName: '我是moduleA'
   },
   getters: {
-    getTestName(state) {
-      return state.testName
+    moduleANameLen(state) {
+      return state.moduleAName.length
     }
   },
   mutations: {
-    SET_TEST_NAME(state, payload) {
-      state.testName = payload.testName
+    SET_MODULE_A_NAME(state, payload) {
+      state.moduleAName = payload.moduleAName
     }
   },
   actions: {
-    getNameFromAsync(
+    getModuleANameAsync(
       { state, rootState, getters, rootGetters, commit, dispatch },
       payload
     ) {
       setTimeout(() => {
-        commit(mutations.SET_TEST_NAME)
+        console.log('SET_MODULE_A_NAME')
+        commit('SET_MODULE_A_NAME', '我是新moduleAName')
       }, 1000)
     }
   }

@@ -2,8 +2,8 @@
  * * getters.js用来定义全局的getters
  */
 
-export const testObj = states => states.testObj
+export const globalTestObjName = state => state.globalTestObj.name
 
-// export const currentSong = (states) => {
-//   return states.playlist[states.currentIndex] || {};
+// export const currentSong = (state) => {
+//   return state.playlist[state.currentIndex] || {};
 // }

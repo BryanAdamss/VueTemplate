@@ -3,7 +3,7 @@
  */
 
 const states = {
-  testObj: {
+  globalTestObj: {
     name: 'test'
   }
 }

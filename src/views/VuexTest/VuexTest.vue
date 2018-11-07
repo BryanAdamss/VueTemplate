@@ -1,7 +1,17 @@
 <template>
   <div class="c-VuexTest">
-    <span>{{testObj.name}}</span>
-    <span @click="change">点击测试vuex</span>
+    <span>{{globalTestObjName}}</span>
+    <div @click="change">点击设置全局vuex</div>
+
+    <span>moduleANameLen：{{moduleANameLen}}</span>
+    <div @click="setModuleAName({
+      moduleAName:Math.random().toString()
+    })">点击设置模块A Vuex</div>
+
+    <span>moduleBNameLen：{{moduleBNameLen}}</span>
+    <div @click="setModuleBName({
+      moduleBName:Math.random().toString()
+    })">点击设置模块B Vuex</div>
   </div>
 </template>
 
@@ -22,8 +32,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['testObj']),
-    ...mapGetters('VuexTest/moduleA', ['getTestName'])
+    ...mapGetters(['globalTestObjName']), // 全局getter
+    ...mapGetters('VuexTest/moduleA', ['moduleANameLen']), // 模块a下的getter
+    ...mapGetters('VuexTest/moduleB', ['moduleBNameLen']) // 模块b下的getter
   },
   beforeRouteEnter(to, from, next) {
     store.install()
@@ -35,12 +46,18 @@ export default {
   },
   methods: {
     change() {
-      this.setTestObj({
+      this.setGlobalTestObj({
         name: `test ${this.count++}`
       })
     },
     ...mapMutations({
-      setTestObj: 'SET_TEST_OBJ'
+      setGlobalTestObj: 'SET_GLOBAL_TEST_OBJ'
+    }),
+    ...mapMutations('VuexTest/moduleA', {
+      setModuleAName: 'SET_MODULE_A_NAME'
+    }),
+    ...mapMutations('VuexTest/moduleB', {
+      setModuleBName: 'SET_MODULE_B_NAME'
     })
   }
 }

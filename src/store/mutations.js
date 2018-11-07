@@ -5,8 +5,8 @@
 import * as types from './mutation-types'
 
 const mutations = {
-  [types.SET_TEST_OBJ](states, testObj) {
-    states.testObj = testObj
+  [types.SET_GLOBAL_TEST_OBJ](state, testObj) {
+    state.globalTestObj = testObj
   }
 }
 

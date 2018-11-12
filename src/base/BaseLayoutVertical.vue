@@ -40,6 +40,8 @@ export default {
   height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  /* 优化滚动性能 */
+  will-change: scroll-position;
 }
 .c-BaseLayoutVertical-ft {
   flex: 0 0 auto;

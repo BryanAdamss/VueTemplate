@@ -201,7 +201,7 @@ export function isEmpty(obj) {
 /**
  * 判断浏览器是否支持passive模式
  */
-export const eventListenerOptionsSupported = () => {
+export const eventListenerPassiveSupported = () => {
   let supported = false
 
   try {

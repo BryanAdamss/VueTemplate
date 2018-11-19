@@ -160,6 +160,12 @@ const LoadingTest = resolve => {
   })
 }
 
+const PullupTest = resolve => {
+  import('Views/PullupTest/PullupTest').then(module => {
+    resolve(module)
+  })
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -383,6 +389,14 @@ const router = new Router({
       component: LoadingTest,
       meta: {
         title: '测试LoadingTest'
+      }
+    },
+    {
+      path: '/pullup-test',
+      name: 'PullupTest',
+      component: PullupTest,
+      meta: {
+        title: '测试PullupTest'
       }
     }
   ]

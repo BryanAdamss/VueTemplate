@@ -122,3 +122,19 @@ export function scrollToTop() {
     window.scrollTo(0, c - c / 8)
   }
 }
+
+/**
+ * 获取计算样式
+ * @param {Object} ele
+ * @returns {Object} 样式对象
+ */
+export function getStyle(ele) {
+  // * 使用defaultView兼容FF<=30中出现的问题
+  var view = ele.ownerDocument.defaultView
+
+  if (!view || !view.opener) {
+    view = window
+  }
+
+  return view.getComputedStyle(ele, null)
+}

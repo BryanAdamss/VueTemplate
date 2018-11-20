@@ -1,4 +1,9 @@
-import { eventListenerPassiveSupported, throttle } from 'Common/js/utils'
+import {
+  eventListenerPassiveSupported,
+  throttle,
+  getComputedStyle
+} from 'Common/js/utils'
+import { getStyle } from 'Common/js/dom'
 
 import Vue from 'vue'
 import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
@@ -18,14 +23,9 @@ export default {
     let lastScrollTop = 0
     let isInPullup = false
 
-    const pullupEnd = ({ noMoreData } = { noMoreData: false }) => {
+    const pullupEnd = () => {
+      el.removeChild(MyLoading.$el)
       isInPullup = false
-      console.log('noMoreData', noMoreData)
-      if (noMoreData) {
-        MyLoading.$el.innerHTML = '暂无更多数据!'
-      } else {
-        MyLoading.$el.style.display = 'none'
-      }
     }
 
     const pullUpScrollHandler = e => {
@@ -34,23 +34,16 @@ export default {
       const clientH = el.clientHeight
 
       if (isInPullup || scrollTop < lastScrollTop) {
-        console.log('isInPullup or small')
         return
       }
 
-      if (scrollTop + clientH >= scrollH - OFFSET) {
+      if (scrollTop + clientH === scrollH) {
         isInPullup = true
         lastScrollTop = scrollTop
 
-        if (el.contains(MyLoading.$el)) {
-          el.insertBefore(MyLoading.$el, el.lastChild)
-          MyLoading.$el.style.display = 'block'
-        } else {
-          el.appendChild(MyLoading.$el)
-        }
-        binding.value(pullupEnd)
+        el.appendChild(MyLoading.$el)
 
-        console.log('bottom')
+        binding.value(pullupEnd)
       }
     }
 

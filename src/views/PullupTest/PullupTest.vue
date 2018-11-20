@@ -50,17 +50,21 @@ export default {
     pullUp
   },
   methods: {
-    onPullup(end) {
-      console.log('pullup')
-      setTimeout(() => {
-        const num = Math.random() * 10
-        let $li = document.createElement('li')
-        $li.innerHTML = `new Li${num}`
-        this.$refs.ul.appendChild($li)
-
+    onPullup(pullupEnd) {
+      console.log('onPullup')
+      const getNewList = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const num = Math.random() * 10
+          console.log(num)
+          resolve(num)
+        }, 1500)
+      }).then(num => {
         console.log('timeEnd')
-        num > 5 ? end({ noMoreData: true }) : end()
-      }, 3000)
+        let $li = document.createElement('li')
+        $li.innerHTML = `new Li ${num}`
+        this.$refs.ul.appendChild($li)
+        pullupEnd()
+      })
     }
   }
 }
@@ -71,5 +75,7 @@ export default {
   height: 400px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+
+  border: 1px solid blue;
 }
 </style>

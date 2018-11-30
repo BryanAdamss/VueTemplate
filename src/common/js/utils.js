@@ -114,6 +114,37 @@ export function throttle(func, wait, options) {
 }
 
 /**
+ * 实现分时的函数，在intervalTime时间间隔内执行count次fn函数
+ * @author cgh
+ * @time   2017-03-06
+ * @param  {Array}   	ary    			每次fn执行需要的参数数组
+ * @param  {Function} 	fn    			处理函数
+ * @param  {Number}   	count 			每个时间间隔内执行的次数
+ * @param  {Number}   	intervalTime 	时间间隔
+ * @return {Function}       			函数
+ */
+export function timeChunk(ary, fn, count, interval) {
+  var obj,
+    t,
+    len = ary.length,
+    intervalTime = interval || 200 // 默认时间间隔200ms
+  var start = function() {
+    for (var i = 0; i < Math.min(count || 1, len); i++) {
+      obj = ary.shift()
+      fn(obj)
+    }
+  }
+  return function() {
+    t = setInterval(function() {
+      if (ary.length === 0) {
+        return clearInterval(t)
+      }
+      start()
+    }, intervalTime)
+  }
+}
+
+/**
  * 将一个数组按size拆分成多个数组的块，然后把这些块组成新的数组
  * @author cgh
  * @time   2018-04-09

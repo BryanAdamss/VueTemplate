@@ -9,13 +9,13 @@
       @touchstart.capture="$_onTouchstartHandler"
     >
 
-      <SwiperSlide
+      <BaseSwiperSlide
         v-for="slide in activeSlides"
         :key="slide.id"
         :style="{width:`${elW}px`}"
       >
         <slot :slide="slide" />
-      </SwiperSlide>
+      </BaseSwiperSlide>
 
     </div>
   </div>
@@ -28,12 +28,12 @@
  * * @description 通用swiper组件
  */
 
-import SwiperSlide from './SwiperSlide';
+import BaseSwiperSlide from './BaseSwiperSlide'
 
 export default {
   name: 'Swiper',
   components: {
-    SwiperSlide
+    BaseSwiperSlide
   },
   props: {
     slides: {
@@ -100,7 +100,7 @@ export default {
               : 0
         }
         // eslint-disable-next-line
-        if (direction === 0) return; // 忽略竖向
+        if (direction === 0) return // 忽略竖向
 
         const offset = movePageX - firstPageX
         // that.lastTransformPosX = that.transformPosX

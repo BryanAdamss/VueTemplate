@@ -165,6 +165,11 @@ const PullupTest = resolve => {
     resolve(module)
   })
 }
+const SwiperTest = resolve => {
+  import('Views/SwiperTest/SwiperTest').then(module => {
+    resolve(module)
+  })
+}
 
 Vue.use(Router)
 
@@ -397,6 +402,14 @@ const router = new Router({
       component: PullupTest,
       meta: {
         title: '测试PullupTest'
+      }
+    },
+    {
+      path: '/swiper-test',
+      name: 'SwiperTest',
+      component: SwiperTest,
+      meta: {
+        title: '测试SwiperTest'
       }
     }
   ]

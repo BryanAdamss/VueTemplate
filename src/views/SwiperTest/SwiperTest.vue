@@ -1,6 +1,9 @@
 <template>
   <BaswSwiper :slides="items">
-    <div slot-scope="slotProps">{{ slotProps.text }}</div>
+    <div
+      slot-scope="{slide}"
+      v-text="slide.text"
+    />
   </BaswSwiper>
 </template>
 
@@ -25,7 +28,8 @@ export default {
         { id: 4, text: 'test4' },
         { id: 5, text: 'test5' },
         { id: 6, text: 'test6' },
-        { id: 7, text: 'test1' }
+        { id: 7, text: 'test7' },
+        { id: 8, text: 'test8' }
       ]
     }
   }

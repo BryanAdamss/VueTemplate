@@ -10,7 +10,7 @@
     >
 
       <BaseSwiperSlide
-        v-for="slide in activeSlides"
+        v-for="slide in slides"
         :key="slide.id"
         :style="{width:`${elW}px`}"
       >
@@ -29,6 +29,9 @@
  */
 
 import BaseSwiperSlide from './BaseSwiperSlide'
+
+import { easeOut } from 'Common/js/easings'
+// import { rafAnim } from 'Common/js/rafAnim'
 
 export default {
   name: 'Swiper',
@@ -64,6 +67,9 @@ export default {
         this.slides.length
       )
       return this.slides.slice(start, end)
+    },
+    slideLength() {
+      return this.slides.length
     }
   },
   beforeCreate() {
@@ -99,17 +105,17 @@ export default {
               ? 1
               : 0
         }
+
         // eslint-disable-next-line
         if (direction === 0) return // 忽略竖向
 
         const offset = movePageX - firstPageX
-        // that.lastTransformPosX = that.transformPosX
 
         that.transformPosX = that.lastTransformPosX + offset
 
-        window.requestAnimationFrame(step)
-
-        console.log('------', movePageX)
+        window.requestAnimationFrame(() => {
+          target.style.transform = `translateX(${that.transformPosX}px)`
+        })
       }
 
       function removeAllHandler() {
@@ -123,6 +129,49 @@ export default {
         const { pageX: lastPageX } = touch
         const offset = lastPageX - firstPageX
 
+        if (offset === 0) {
+          return
+        } else if (offset > 0) {
+          // * 手指向右移动
+          if (that.cur === 0) {
+            // * 置为0
+            moveAnimation(that.transformPosX, 0)
+            that.transformPosX = that.lastTransformPosX = 0
+          } else {
+            if (Math.abs(offset) >= that.threshold) {
+              // * 上一页
+              const newPosX = that.lastTransformPosX + that.elW
+              moveAnimation(that.transformPosX, newPosX)
+              that.lastTransformPosX = that.transformPosX = newPosX
+              that.cur--
+            } else {
+              // * 回到本页
+              moveAnimation(that.transformPosX, that.lastTransformPosX)
+              that.transformPosX = that.lastTransformPosX
+            }
+          }
+        } else {
+          // * 手指向左移动
+          if (that.cur === that.slideLength - 1) {
+            // * 置为最大值
+            const maxPosX = -(that.elW * (that.slideLength - 1))
+            moveAnimation(that.transformPosX, maxPosX)
+            that.transformPosX = that.lastTransformPosX = maxPosX
+          } else {
+            // * 下一页
+            if (Math.abs(offset) >= that.threshold) {
+              const newPosX = that.lastTransformPosX - that.elW
+              moveAnimation(that.transformPosX, newPosX)
+              that.transformPosX = that.lastTransformPosX = newPosX
+              that.cur++
+            } else {
+              // * 回到本页
+              moveAnimation(that.transformPosX, that.lastTransformPosX)
+              that.transformPosX = that.lastTransformPosX
+            }
+          }
+        }
+
         removeAllHandler()
       }
 
@@ -130,34 +179,21 @@ export default {
         removeAllHandler()
       }
 
-      function step() {
-        target.style.transform = `translateX(${that.transformPosX}px)`
-      }
-
       function moveAnimation(moveStart, moveEnd) {
-        const moveDirect = moveStart - moveEnd > 0 ? -1 : 1
-        window.requestAnimationFrame(stepAnim)
+        if (moveStart - moveEnd === 0) return
+        let t = 0,
+          b = moveStart,
+          c = moveEnd - moveStart,
+          d = 10
         function stepAnim() {
-          if (moveDirect > 0) {
-            // * start +++ -> end
-            moveStart = moveStart + moveStart / 8
-            if (moveStart < moveEnd) {
-              window.requestAnimationFrame(stepAnim)
-            }
-          } else {
-            moveStart = moveStart - moveStart / 8
-            // * start --- -> end
-            if (moveStart > moveEnd) {
-              window.requestAnimationFrame(stepAnim)
-            }
-          }
-
+          moveStart = easeOut(t, b, c, d)
           target.style.transform = `translateX(${moveStart}px)`
-
-          if (moveStart !== moveEnd) {
+          t++
+          if (t <= d) {
             window.requestAnimationFrame(stepAnim)
           }
         }
+        stepAnim()
       }
 
       target.addEventListener('touchmove', onTouchmoveHandler)

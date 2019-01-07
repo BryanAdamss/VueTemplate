@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['vue'],
   // add your custom rules here
   rules: {
+    camelcase: 'off',
     // 关闭attribute强制横线连接
     'vue/attribute-hyphenation': 'off',
     // 设置缩进

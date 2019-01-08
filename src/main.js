@@ -1,7 +1,13 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import fastclick from 'fastclick'
+
+// * ----------------------------------------
+// * 基础库引入
+// * ----------------------------------------
+import 'Assets/js/flexible-custom'
+import 'Assets/js/fastclick-custom'
+
 import VueLazyload from 'vue-lazyload'
 
 import App from './App'
@@ -12,6 +18,8 @@ import BaseToast from 'Base/BaseToast/BaseToast'
 
 import axios from 'Common/js/axios'
 import { debounce, throttle } from 'Common/js/utils'
+
+import { DEBUG } from 'Common/js/const'
 
 Vue.use({
   install: Vue => {
@@ -27,20 +35,29 @@ Vue.use({
   }
 })
 
-// * 开发环境启用vconsole
-if (process.env.NODE_ENV === 'development') {
+// * ----------------------------------------
+// * 调试工具引入
+// * ----------------------------------------
+if (DEBUG && process.env.NODE_ENV === 'development') {
   /* eslint-disable no-unused-vars */
-  var VConsole = require('vconsole')
-  // 使用vconsole来调试
-  var vConsole = new VConsole()
+  var vConsole = new Vconsole()
 }
 
 Vue.config.productionTip = false
 
-// 在body上绑定fastclick
-fastclick.attach(document.body)
-
-// 注册lazyload并配置默认图
+// * ----------------------------------------
+// * 在body上绑定fastclick
+// * ----------------------------------------
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+    FastClick.attach(document.body)
+  },
+  false
+)
+// * ----------------------------------------
+// * 注册lazyload并配置默认图
+// * ----------------------------------------
 Vue.use(VueLazyload, {
   loading: require('Common/img/loading.gif')
 })

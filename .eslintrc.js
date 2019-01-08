@@ -39,7 +39,10 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   globals: {
-    // 指定全局变量并不允许改写
-    // ZXApp: false,
+    // 指定全局变量并不允许改写，eslint不会报错
+    katex: false,
+    MathJax: false,
+    Vconsole: false,
+    FastClick: false
   }
 }

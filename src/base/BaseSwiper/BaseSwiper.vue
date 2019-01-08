@@ -5,18 +5,17 @@
   >
     <div
       ref="wp"
+      :style="{'padding-left':paddingLeftStyle}"
       class="c-BaseSwiper-wp"
       @touchstart.capture="$_onTouchstartHandler"
     >
-
       <BaseSwiperSlide
-        v-for="slide in slides"
+        v-for="slide in activeSlides"
         :key="slide.id"
         :style="{width:`${elW}px`}"
       >
         <slot :slide="slide" />
       </BaseSwiperSlide>
-
     </div>
   </div>
 </template>
@@ -60,13 +59,17 @@ export default {
     }
   },
   computed: {
+    paddingLeftStyle() {
+      return `${this.activeSlidesStart * this.elW}px`
+    },
+    activeSlidesStart() {
+      return Math.max(this.cur - this.prerenderSlideNum, 0)
+    },
+    activeSlidesEnd() {
+      return Math.min(this.cur + this.prerenderSlideNum + 1, this.slides.length)
+    },
     activeSlides() {
-      const start = Math.max(this.cur - this.prerenderSlideNum, 0)
-      const end = Math.min(
-        this.cur + this.prerenderSlideNum + 1,
-        this.slides.length
-      )
-      return this.slides.slice(start, end)
+      return this.slides.slice(this.activeSlidesStart, this.activeSlidesEnd)
     },
     slideLength() {
       return this.slides.length

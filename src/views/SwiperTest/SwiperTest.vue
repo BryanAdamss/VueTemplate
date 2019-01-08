@@ -1,10 +1,10 @@
 <template>
-  <BaswSwiper :slides="items">
+  <BaseSwiper :slides="items">
     <div
       slot-scope="{slide}"
       v-text="slide.text"
     />
-  </BaswSwiper>
+  </BaseSwiper>
 </template>
 
 <script>
@@ -12,12 +12,12 @@
  * * SwiperTest
  */
 
-import BaswSwiper from 'Base/BaseSwiper/BaseSwiper'
+import BaseSwiper from 'Base/BaseSwiper/BaseSwiper'
 
 export default {
   name: 'SwiperTest',
   components: {
-    BaswSwiper
+    BaseSwiper
   },
   data() {
     return {

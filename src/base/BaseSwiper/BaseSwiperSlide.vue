@@ -10,23 +10,7 @@
  */
 
 export default {
-  name: 'BaseSwiperSlide',
-  components: {},
-  mixins: [],
-  props: {},
-  data() {
-    return {}
-  },
-  computed: {},
-  watch: {},
-  beforeCreate() {},
-  created() {},
-  mounted() {},
-  methods: {
-    $_onTouchstartHandler(e) {
-      console.log(e)
-    }
-  }
+  name: 'BaseSwiperSlide'
 }
 </script>
 

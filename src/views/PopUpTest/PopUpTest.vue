@@ -2,25 +2,31 @@
   <div class="c-PopUpTest">
 
     <div>
-      <button type="button"
-              v-for="(btn,btnIndex) in buttons"
-              :key="btnIndex"
-              @click="onButtonClick(btn.label)">位置{{btn.label}}</button>
+      <button
+        v-for="(btn,btnIndex) in buttons"
+        :key="btnIndex"
+        type="button"
+        @click="onButtonClick(btn.label)"
+      >位置{{ btn.label }}</button>
     </div>
 
-    <BasePopUp v-for="(btn,btnIndex) in buttons"
-               :key="btnIndex"
-               :ref="'modal-'+btn.label"
-               :shadowClose="true"
-               :emitShadowClickEvent="true"
-               @onShadowClick="onShadowClick"
-               :emitVisibleChangeEvent="true"
-               @onVisibleChange="onVisibleChange"
-               :position="btn.label">
+    <BasePopUp
+      v-for="(btn,btnIndex) in buttons"
+      :key="btnIndex"
+      :ref="'modal-'+btn.label"
+      :shadowClose="true"
+      :emitShadowClickEvent="true"
+      :emitVisibleChangeEvent="true"
+      :position="btn.label"
+      @onShadowClick="onShadowClick"
+      @onVisibleChange="onVisibleChange"
+    >
       <div style="background-color:#fff;height:100%;">测试modal
-        <button type="button"
-                @click.stop="closeModal">&times;</button>
-        <h1>{{btn.label}} <br> 查看控制台输出</h1>
+        <button
+          type="button"
+          @click.stop="closeModal"
+        >&times;</button>
+        <h1>{{ btn.label }} <br> 查看控制台输出</h1>
       </div>
     </BasePopUp>
 
@@ -36,6 +42,9 @@ import BasePopUp from 'Base/BasePopUp'
 
 export default {
   name: 'PopUpTest',
+  components: {
+    BasePopUp
+  },
   data() {
     return {
       buttons: [
@@ -58,9 +67,6 @@ export default {
       curPopUpName: ''
     }
   },
-  components: {
-    BasePopUp
-  },
   methods: {
     onButtonClick(pos) {
       const popUpName = 'modal-' + pos
@@ -79,5 +85,3 @@ export default {
   }
 }
 </script>
-
- 

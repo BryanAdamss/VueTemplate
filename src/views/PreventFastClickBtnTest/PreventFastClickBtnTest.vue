@@ -1,8 +1,10 @@
 <template>
   <div class="c-PreventFastClickBtnTest">
-    <BaseBtnPreventFastClick tag="div"
-                             @click="onClick"
-                             class="c-MyBtn">
+    <BaseBtnPreventFastClick
+      tag="div"
+      class="c-MyBtn"
+      @click="onClick"
+    >
       点击
     </BaseBtnPreventFastClick>
 

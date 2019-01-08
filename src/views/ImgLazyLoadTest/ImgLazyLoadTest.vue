@@ -1,9 +1,11 @@
 <template>
   <div class="c-ImgLazyLoadTest">
     <div class="c-ImgBox">
-      <img v-for="n in 50"
-           :key="n"
-           v-lazy="`http://placehold.it/200x${n+1}0`">
+      <img
+        v-lazy="`http://placehold.it/200x${n+1}0`"
+        v-for="n in 50"
+        :key="n"
+      >
     </div>
   </div>
 </template>
@@ -22,6 +24,3 @@ export default {
   -webkit-overflow-scrolling: touch;
 }
 </style>
-
-
- 

@@ -1,8 +1,10 @@
 <template>
   <div class="c-PullupTest">
-    <ul class="c-List"
-        v-pull-up="onPullup"
-        ref="ul">
+    <ul
+      v-pull-up="onPullup"
+      ref="ul"
+      class="c-List"
+    >
       <li>1</li>
       <li>2</li>
       <li>3</li>
@@ -52,19 +54,19 @@ export default {
   methods: {
     onPullup(pullupEnd) {
       console.log('onPullup')
-      const getNewList = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          const num = Math.random() * 10
-          console.log(num)
-          resolve(num)
-        }, 1500)
-      }).then(num => {
-        console.log('timeEnd')
-        let $li = document.createElement('li')
-        $li.innerHTML = `new Li ${num}`
-        this.$refs.ul.appendChild($li)
-        pullupEnd()
-      })
+      // const getNewList = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     const num = Math.random() * 10
+      //     console.log(num)
+      //     resolve(num)
+      //   }, 1500)
+      // }).then(num => {
+      //   console.log('timeEnd')
+      //   let $li = document.createElement('li')
+      //   $li.innerHTML = `new Li ${num}`
+      //   this.$refs.ul.appendChild($li)
+      //   pullupEnd()
+      // })
     }
   }
 }

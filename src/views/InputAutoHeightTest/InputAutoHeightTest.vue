@@ -1,6 +1,6 @@
 <template>
   <div class="c-c-InputAutoHeightTestTest">
-    <textarea v-auto-height></textarea>
+    <textarea v-auto-height />
   </div>
 
 </template>
@@ -12,7 +12,7 @@
 
 import AutoHeight from 'Directives/auto-height'
 export default {
-  name: 'c-InputAutoHeightTest',
+  name: 'CInputAutoHeightTest',
   directives: {
     AutoHeight
   }

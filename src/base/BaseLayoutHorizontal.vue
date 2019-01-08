@@ -1,15 +1,19 @@
 <template>
   <div class="c-BaseLayoutHorizontal">
-    <div class="c-BaseLayoutHorizontal-side"
-         v-if="this.$slots.side">
-      <slot name="side"></slot>
+    <div
+      v-if="this.$slots.side"
+      class="c-BaseLayoutHorizontal-side"
+    >
+      <slot name="side"/>
     </div>
     <div class="c-BaseLayoutHorizontal-main">
-      <slot></slot>
+      <slot/>
     </div>
-    <div class="c-BaseLayoutHorizontal-extra"
-         v-if="this.$slots.extra">
-      <slot name="extra"></slot>
+    <div
+      v-if="this.$slots.extra"
+      class="c-BaseLayoutHorizontal-extra"
+    >
+      <slot name="extra"/>
     </div>
   </div>
 </template>

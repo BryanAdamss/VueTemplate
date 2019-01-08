@@ -1,18 +1,20 @@
-<!-- 批改-查看原题 --> 
+<!-- 批改-查看原题 -->
 <template>
   <div style="height:500px;">
 
-    <BaseScroll ref="baseScroll"
-                style="height:100%;"
-                @beforeScroll="onBeforeScroll"
-                @scroll="onScroll"
-                @scrollToBottom="onScrollToBottom"
-                @scrollEnd="onScrollEnd"
-                @refreshEnd="onRefreshEnd"
-                :pullDownRefresh="true"
-                @pullingDown="onPullingDown"
-                :pullUpLoad="true"
-                @pullingUp="onPullingUp">
+    <BaseScroll
+      ref="baseScroll"
+      :pullDownRefresh="true"
+      :pullUpLoad="true"
+      style="height:100%;"
+      @beforeScroll="onBeforeScroll"
+      @scroll="onScroll"
+      @scrollToBottom="onScrollToBottom"
+      @scrollEnd="onScrollEnd"
+      @refreshEnd="onRefreshEnd"
+      @pullingDown="onPullingDown"
+      @pullingUp="onPullingUp"
+    >
       <ul>
         <li>1</li>
         <li>2</li>
@@ -175,9 +177,13 @@ import BaseLoading from 'Base/BaseLoading'
 
 export default {
   name: 'BetterScrollTest',
+  components: {
+    BaseScroll,
+    BaseLoading
+  },
   methods: {
     onBeforeScroll() {
-      conole.log('onBeforeScroll')
+      console.log('onBeforeScroll')
     },
     onScroll(pos) {
       console.log('onScroll', pos)
@@ -207,12 +213,6 @@ export default {
         })
       }, 2000)
     }
-  },
-  components: {
-    BaseScroll,
-    BaseLoading
   }
 }
 </script>
- 
-

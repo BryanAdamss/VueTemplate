@@ -2,13 +2,15 @@
   <ul class="c-LinkList">
     <!--路由跳转采用命名形式跳转-->
     <!-- exact标识路由样式匹配采用精准模式 -->
-    <router-link v-for="(route,index) in routes"
-                 :key="index"
-                 :to="{name:route.name}"
-                 exact
-                 tag="li"
-                 class="c-LinkList-item">
-      跳转{{route.name}}
+    <router-link
+      v-for="(route,index) in routes"
+      :key="index"
+      :to="{name:route.name}"
+      exact
+      tag="li"
+      class="c-LinkList-item"
+    >
+      跳转{{ route.name }}
     </router-link>
   </ul>
 </template>

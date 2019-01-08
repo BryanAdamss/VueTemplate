@@ -1,8 +1,10 @@
 <template>
-  <div class="c-BasePopUp"
-       :class="[positionClass,{'has-shadow':hasShadow},{'is-visible':isCanVisible}]"
-       @click.stop="onShadowClick"
-       ref="modal">
+  <div
+    ref="modal"
+    :class="[positionClass,{'has-shadow':hasShadow},{'is-visible':isCanVisible}]"
+    class="c-BasePopUp"
+    @click.stop="onShadowClick"
+  >
     <div class="c-BasePopUp-main">
       <slot>
         BasePopUp

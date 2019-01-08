@@ -2,11 +2,11 @@
   <div class="c-EventBusTest">
     parent
     <div class="c-Msg">
-      接收来自EventBusGrandson1的消息:{{msg}}
+      接收来自EventBusGrandson1的消息:{{ msg }}
     </div>
     <div class="c-Parent">
-      <EventBusSon1 class="c-Son"></EventBusSon1>
-      <EventBusSon2 class="c-Son"></EventBusSon2>
+      <EventBusSon1 class="c-Son" />
+      <EventBusSon2 class="c-Son" />
     </div>
   </div>
 </template>

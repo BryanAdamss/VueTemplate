@@ -1,11 +1,14 @@
 <template>
-  <div class="c-Loading"
-       :class="{'is-center':fixedAtCenter,'has-bg':hasBg}">
-    <BaseLoadingSpinner :size="spinnerSize"></BaseLoadingSpinner>
+  <div
+    :class="{'is-center':fixedAtCenter,'has-bg':hasBg}"
+    class="c-Loading"
+  >
+    <BaseLoadingSpinner :size="spinnerSize" />
     <slot>
-      <div class="c-Loading-text"
-           v-text="text">
-      </div>
+      <div
+        class="c-Loading-text"
+        v-text="text"
+      />
     </slot>
   </div>
 </template>
@@ -17,6 +20,9 @@ import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
  */
 export default {
   name: 'BaseLoading',
+  components: {
+    BaseLoadingSpinner
+  },
   props: {
     text: {
       type: String,
@@ -34,9 +40,6 @@ export default {
       type: Boolean,
       default: true
     }
-  },
-  components: {
-    BaseLoadingSpinner
   }
 }
 </script>
@@ -61,4 +64,3 @@ export default {
   @extend %textWrap;
 }
 </style>
-

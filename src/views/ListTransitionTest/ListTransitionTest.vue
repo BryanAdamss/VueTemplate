@@ -1,10 +1,12 @@
 <template>
   <div class="c-ListTransitionTest">
     <BaseListTransition tag="ul">
-      <li v-for="(item, index) in list"
-          :key="item.msg"
-          :data-index="index">
-        {{item.msg}}
+      <li
+        v-for="(item, index) in list"
+        :key="item.msg"
+        :data-index="index"
+      >
+        {{ item.msg }}
         <span @click="deleteItem(index)">&times;</span>
       </li>
     </BaseListTransition>
@@ -19,6 +21,9 @@
 import BaseListTransition from 'Base/BaseListTransition'
 export default {
   name: 'ListTransitionTest',
+  components: {
+    BaseListTransition
+  },
   data() {
     return {
       query: '',
@@ -66,11 +71,6 @@ export default {
     deleteItem(index) {
       this.list.splice(index, 1)
     }
-  },
-  components: {
-    BaseListTransition
   }
 }
 </script>
-
- 

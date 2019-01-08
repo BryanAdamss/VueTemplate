@@ -1,14 +1,18 @@
 <template>
   <div class="c-ModalTest">
-    <BaseModal ref="modal"
-               :shadowClose="true"
-               :emitShadowClickEvent="true"
-               @onShadowClick="onShadowClick"
-               :emitVisibleChangeEvent="true"
-               @onVisibleChange="onVisibleChange">
+    <BaseModal
+      ref="modal"
+      :shadowClose="true"
+      :emitShadowClickEvent="true"
+      :emitVisibleChangeEvent="true"
+      @onShadowClick="onShadowClick"
+      @onVisibleChange="onVisibleChange"
+    >
       <div style="background-color:#fff">测试modal
-        <button type="button"
-                @click.stop="closeModal">&times;</button>
+        <button
+          type="button"
+          @click.stop="closeModal"
+        >&times;</button>
         <h1>sjdkfljaslkdfj</h1>
       </div>
     </BaseModal>
@@ -44,5 +48,3 @@ export default {
   }
 }
 </script>
-
- 

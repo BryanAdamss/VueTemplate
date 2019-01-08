@@ -1,25 +1,19 @@
-import {
-  eventListenerPassiveSupported,
-  throttle,
-  getComputedStyle
-} from 'Common/js/utils'
-import { getStyle } from 'Common/js/dom'
+import { eventListenerPassiveSupported, throttle } from 'Common/js/utils'
 
 import Vue from 'vue'
 import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
 
 const ExtendLoading = Vue.extend({
-  template:
-    '<div style="text-align:center;font-size:20px;"><BaseLoadingSpinner/></div>',
   components: {
     BaseLoadingSpinner
-  }
+  },
+  template:
+    '<div style="text-align:center;font-size:20px;"><BaseLoadingSpinner/></div>'
 })
 const MyLoading = new ExtendLoading().$mount()
 
 export default {
   bind(el, binding, vnode, oldVnode) {
-    const OFFSET = 50
     let lastScrollTop = 0
     let isInPullup = false
 

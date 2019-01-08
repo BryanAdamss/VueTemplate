@@ -1,7 +1,9 @@
 <template>
   <div class="c-DragTest">
-    <div class="c-Box"
-         v-drag="onDrag">
+    <div
+      v-drag="onDrag"
+      class="c-Box"
+    >
       拖动我
     </div>
   </div>
@@ -39,5 +41,3 @@ export default {
   background-color: #f00;
 }
 </style>
-
- 

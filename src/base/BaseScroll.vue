@@ -1,22 +1,30 @@
 <template>
-  <div class="c-BaseScroll"
-       ref="wrapper">
+  <div
+    ref="wrapper"
+    class="c-BaseScroll"
+  >
     <div class="c-BaseScroll-main">
       <!-- 滚动列表 -->
       <div class="c-BaseScroll-list">
-        <slot></slot>
+        <slot />
       </div>
       <!-- 滚动列表 end -->
       <!-- 上拉加载容器 -->
-      <div class="c-BaseScroll-pullup"
-           v-if="pullUpLoad">
+      <div
+        v-if="pullUpLoad"
+        class="c-BaseScroll-pullup"
+      >
         <div class="c-PullUp">
-          <div class="c-PullUp-spinner"
-               v-show="pullUpOptions.isPullUpLoading">
-            <BaseLoadingSpinner :size="'16px'"></BaseLoadingSpinner>
+          <div
+            v-show="pullUpOptions.isPullUpLoading"
+            class="c-PullUp-spinner"
+          >
+            <BaseLoadingSpinner />
           </div>
-          <div class="c-PullUp-text"
-               v-show="!pullUpOptions.isPullUpLoading">
+          <div
+            v-show="!pullUpOptions.isPullUpLoading"
+            class="c-PullUp-text"
+          >
             {{ pullUpOptions.noMoreData ? pullUpNoMoreDataText : pullUpText }}
           </div>
         </div>
@@ -24,18 +32,24 @@
       <!-- 上拉加载容器 end -->
     </div>
     <!-- 下拉刷新容器 -->
-    <div class="c-BaseScroll-pulldown"
-         v-if="pullDownRefresh"
-         ref="pulldown">
+    <div
+      v-if="pullDownRefresh"
+      ref="pulldown"
+      class="c-BaseScroll-pulldown"
+    >
       <div class="c-PullDown">
-        <div class="c-PullDown-spinner"
-             v-show="pullDownOptions.isPullingDown">
-          <BaseLoadingSpinner :size="'16px'"></BaseLoadingSpinner>
+        <div
+          v-show="pullDownOptions.isPullingDown"
+          class="c-PullDown-spinner"
+        >
+          <BaseLoadingSpinner />
         </div>
-        <div class="c-PullDown-text"
-             :class="{'is-overPullDown':pullDownOptions.isOverPullDown}"
-             v-show="!pullDownOptions.isPullingDown">
-          {{pullDownOptions.isOverPullDown ? pullDownReleaseText : pullingDownText}}
+        <div
+          v-show="!pullDownOptions.isPullingDown"
+          :class="{'is-overPullDown':pullDownOptions.isOverPullDown}"
+          class="c-PullDown-text"
+        >
+          {{ pullDownOptions.isOverPullDown ? pullDownReleaseText : pullingDownText }}
         </div>
       </div>
     </div>
@@ -52,6 +66,9 @@ import BaseLoadingSpinner from 'Base/BaseLoadingSpinner'
  */
 export default {
   name: 'BaseScroll',
+  components: {
+    BaseLoadingSpinner
+  },
   props: {
     // * ---------默认配置参数---------
     // * 是否启用模拟纵轴滚动(默认纵轴滚动)
@@ -96,6 +113,7 @@ export default {
     },
     // * 是否保留原生滚动(默认不保留，使用模拟滚动)
     keepNativeScrollDirection: {
+      default: false,
       validator: function(value) {
         // * 值必须匹配下列字符串中的一个
         return ['', 'vertical', 'horizontal'].indexOf(value) !== -1
@@ -208,15 +226,15 @@ export default {
     },
     // * 滚动到指定位置
     scrollTo() {
-      this.scroll && this.scroll.scrollTo.call(this.scroll, ...arguments)
+      this.scroll && this.scroll.scrollTo(...arguments)
     },
     // * 相对当前位置偏移滚动
     scrollBy() {
-      this.scroll && this.scroll.scrollBy.call(this.scroll, ...arguments)
+      this.scroll && this.scroll.scrollBy(...arguments)
     },
     // * 滚动到指定元素
     scrollToElement() {
-      this.scroll && this.scroll.scrollToElement.call(this.scroll, ...arguments)
+      this.scroll && this.scroll.scrollToElement(...arguments)
     },
     // * 立即停止滚动
     stop() {
@@ -258,6 +276,11 @@ export default {
       this.scroll && this.scroll.finishPullUp()
       this.pullUpOptions.isPullUpLoading = false
       this.pullUpOptions.noMoreData = noMoreData
+      // * 存在上拉结束，DOM还未刷新用户又再次上拉导致上拉位置出现问题
+      // * 上拉结束时，等待DOM刷新后，主动刷新better-scroll；
+      setTimeout(() => {
+        this.refresh()
+      }, 20)
     },
     // * 初始化滚动实例
     _initScroll() {
@@ -380,8 +403,7 @@ export default {
         )}px`
 
         // * 是否过度下拉
-        this.pullDownOptions.isOverPullDown =
-          pos.y > this.pullDownThreshold ? true : false
+        this.pullDownOptions.isOverPullDown = pos.y > this.pullDownThreshold
       } else {
         this.$refs.pulldown.style.top = `${-this.pullDownStop}px`
       }
@@ -427,9 +449,6 @@ export default {
       // * 移除scrollEnd监听
       this.scroll.off('scrollEnd', this._onPullDownScrollEnd)
     }
-  },
-  components: {
-    BaseLoadingSpinner
   }
 }
 </script>
@@ -482,5 +501,3 @@ export default {
   align-items: center;
 }
 </style>
-
-

@@ -1,6 +1,6 @@
 <template>
   <div class="c-LoadingTest">
-    <BaseLoading></BaseLoading>
+    <BaseLoading/>
   </div>
 </template>
 

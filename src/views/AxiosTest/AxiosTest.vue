@@ -1,14 +1,18 @@
 <template>
   <div class="c-AxiosTest">
     <h2>测试axios返回的数据</h2>
-    <ul class="c-List"
-        ref="list">
-      <li v-for="post in posts"
-          :key="post.id"
-          @click.stop="onListItemClick(post)"
-          class="c-List-item">{{post.id}}:{{post.title}}</li>
+    <ul
+      ref="list"
+      class="c-List"
+    >
+      <li
+        v-for="post in posts"
+        :key="post.id"
+        class="c-List-item"
+        @click.stop="onListItemClick(post)"
+      >{{ post.id }}:{{ post.title }}</li>
     </ul>
-    <BaseLoading v-show="isLoading"></BaseLoading>
+    <BaseLoading v-show="isLoading" />
   </div>
 </template>
 
@@ -21,14 +25,13 @@ import BaseLoading from 'Base/BaseLoading'
 
 export default {
   name: 'AxiosTest',
-
+  components: {
+    BaseLoading
+  },
   data() {
     return {
       posts: []
     }
-  },
-  components: {
-    BaseLoading
   },
   created() {
     this.isLoading = true
@@ -73,7 +76,7 @@ export default {
   }
 }
 </script>
- 
+
  <style scoped>
 .c-List {
   height: 500px;
@@ -86,4 +89,3 @@ export default {
   border-top: 1px solid #aaa;
 }
 </style>
- 

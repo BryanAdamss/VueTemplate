@@ -1,8 +1,10 @@
 <template>
-  <div class="c-BaseModal"
-       :class="{'is-visible':isCanVisible}"
-       @click.stop="onShadowClick"
-       ref="modal">
+  <div
+    ref="modal"
+    :class="{'is-visible':isCanVisible}"
+    class="c-BaseModal"
+    @click.stop="onShadowClick"
+  >
     <div class="c-BaseModal-main">
       <slot>
         BaseModal

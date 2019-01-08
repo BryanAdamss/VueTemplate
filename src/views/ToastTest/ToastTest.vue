@@ -1,7 +1,9 @@
 <template>
   <div class="c-ToastTest">
-    <button type="button"
-            @click.stop="showToast">点击展示toast</button>
+    <button
+      type="button"
+      @click.stop="showToast"
+    >点击展示toast</button>
   </div>
 </template>
 
@@ -20,5 +22,3 @@ export default {
   }
 }
 </script>
-
- 

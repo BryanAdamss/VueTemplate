@@ -1,16 +1,17 @@
 <template>
   <div class="c-VuexTest">
-    <span>{{globalTestObjName}}</span>
+    <span>{{ globalTestObjName }}</span>
     <div @click="change">点击设置全局vuex</div>
 
-    <span>moduleANameLen：{{moduleANameLen}}</span>
-    <div @click="setModuleAName({
+    <span>moduleANameLen：{{ moduleANameLen }}</span>
+    <div 
+@click="setModuleAName({
       moduleAName:Math.random().toString()
     })">点击设置模块A Vuex</div>
 
-    <span>moduleBNameLen：{{moduleBNameLen}}</span>
-    <div @click="setModuleBName({
-      moduleBName:Math.random().toString()
+    <span>moduleBNameLen：{{ moduleBNameLen }}</span>
+    <div 
+@click="setModuleBName({ moduleBName:Math.random().toString()
     })">点击设置模块B Vuex</div>
   </div>
 </template>
@@ -23,9 +24,11 @@
 import {
   mapGetters,
   mapMutations,
-  mapActions,
+  // mapActions,
   createNamespacedHelpers
-} from 'vuex'
+} from 'vuex' // * 使用 createNamespacedHelpers 创建基于某个命名空间辅助函数
+
+import store from './store'
 
 const {
   mapGetters: mapGettersForModuleA,
@@ -35,9 +38,7 @@ const {
 const {
   mapGetters: mapGettersForModuleB,
   mapMutations: mapMutationsForModuleB
-} = createNamespacedHelpers('VuexTest/moduleB') // * 使用 createNamespacedHelpers 创建基于某个命名空间辅助函数
-
-import store from './store'
+} = createNamespacedHelpers('VuexTest/moduleB')
 
 export default {
   name: 'VuexTest',

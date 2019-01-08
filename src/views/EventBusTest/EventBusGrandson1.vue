@@ -2,11 +2,15 @@
   <div class="c-EventBusGrandson1">
     EventBusGrandson1
     <br>
-    <button type="button"
-            @click="sendMsg">发消息给son2</button>
-    <button type="button"
-            @click="sendMsg2"
-            style="margin-top:10px;">发消息给parent</button>
+    <button
+      type="button"
+      @click="sendMsg"
+    >发消息给son2</button>
+    <button
+      type="button"
+      style="margin-top:10px;"
+      @click="sendMsg2"
+    >发消息给parent</button>
   </div>
 </template>
 
@@ -34,4 +38,3 @@ export default {
   }
 }
 </script>
- 

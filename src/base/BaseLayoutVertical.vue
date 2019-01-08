@@ -1,15 +1,19 @@
 <template>
   <div class="c-BaseLayoutVertical">
-    <div class="c-BaseLayoutVertical-hd"
-         v-if="this.$slots.header">
-      <slot name="header"></slot>
+    <div
+      v-if="this.$slots.header"
+      class="c-BaseLayoutVertical-hd"
+    >
+      <slot name="header"/>
     </div>
     <div class="c-BaseLayoutVertical-bd">
-      <slot></slot>
+      <slot/>
     </div>
-    <div class="c-BaseLayoutVertical-ft"
-         v-if="this.$slots.footer">
-      <slot name="footer"></slot>
+    <div
+      v-if="this.$slots.footer"
+      class="c-BaseLayoutVertical-ft"
+    >
+      <slot name="footer"/>
     </div>
   </div>
 </template>

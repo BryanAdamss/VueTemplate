@@ -9,127 +9,163 @@ import { STATUS_OK } from 'Api/config'
 
 // * 使用动态载入
 const Home = resolve => {
-  import('Views/Home/Home').then(module => {
+  import(/* webpackChunkName:'Home' */ 'Views/Home/Home').then(module => {
     resolve(module)
   })
 }
 
 const HomeChild1 = resolve => {
-  import('Views/Home/HomeChild1').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'HomeChild1' */ 'Views/Home/HomeChild1').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const HomeChild2 = resolve => {
-  import('Views/Home/HomeChild2').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'HomeChild2' */ 'Views/Home/HomeChild2').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const UserCenter = resolve => {
-  import('Views/UserCenter/UserCenter').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'UserCenter' */ 'Views/UserCenter/UserCenter').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const Login = resolve => {
-  import('Views/Login/Login').then(module => {
+  import(/* webpackChunkName:'Login' */ 'Views/Login/Login').then(module => {
     resolve(module)
   })
 }
 
 const VuexTest = resolve => {
-  import('Views/VuexTest/VuexTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'VuexTest' */ 'Views/VuexTest/VuexTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ClickOutSideTest = resolve => {
-  import('Views/ClickOutSideTest/ClickOutSideTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ClickOutSideTest' */ 'Views/ClickOutSideTest/ClickOutSideTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ImgLazyLoadTest = resolve => {
-  import('Views/ImgLazyLoadTest/ImgLazyLoadTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ImgLazyLoadTest' */ 'Views/ImgLazyLoadTest/ImgLazyLoadTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const AxiosTest = resolve => {
-  import('Views/AxiosTest/AxiosTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'AxiosTest' */ 'Views/AxiosTest/AxiosTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const AxiosListDetailTest = resolve => {
-  import('Views/AxiosListDetailTest/AxiosListDetailTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'AxiosListDetailTest' */ 'Views/AxiosListDetailTest/AxiosListDetailTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const InputAutoHeightTest = resolve => {
-  import('Views/InputAutoHeightTest/InputAutoHeightTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'InputAutoHeightTest' */ 'Views/InputAutoHeightTest/InputAutoHeightTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const BetterScrollTest = resolve => {
-  import('Views/BetterScrollTest/BetterScrollTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'BetterScrollTest' */ 'Views/BetterScrollTest/BetterScrollTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const DragTest = resolve => {
-  import('Views/DragTest/DragTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'DragTest' */ 'Views/DragTest/DragTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ModalTest = resolve => {
-  import('Views/ModalTest/ModalTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ModalTest' */ 'Views/ModalTest/ModalTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const PopUpTest = resolve => {
-  import('Views/PopUpTest/PopUpTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'PopUpTest' */ 'Views/PopUpTest/PopUpTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ToastTest = resolve => {
-  import('Views/ToastTest/ToastTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ToastTest' */ 'Views/ToastTest/ToastTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ConfirmTest = resolve => {
-  import('Views/ConfirmTest/ConfirmTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ConfirmTest' */ 'Views/ConfirmTest/ConfirmTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const GoToTopTest = resolve => {
-  import('Views/GoToTopTest/GoToTopTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'GoToTopTest' */ 'Views/GoToTopTest/GoToTopTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const ClickAreaExpandTest = resolve => {
-  import('Views/ClickAreaExpandTest/ClickAreaExpandTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ClickAreaExpandTest' */ 'Views/ClickAreaExpandTest/ClickAreaExpandTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const DebounceThrottleTest = resolve => {
-  import('Views/DebounceThrottleTest/DebounceThrottleTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'DebounceThrottleTest' */ 'Views/DebounceThrottleTest/DebounceThrottleTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const PreventFastClickBtnTest = resolve => {
-  import('Views/PreventFastClickBtnTest/PreventFastClickBtnTest').then(
+  import(/* webpackChunkName:'PreventFastClickBtnTest' */ 'Views/PreventFastClickBtnTest/PreventFastClickBtnTest').then(
     module => {
       resolve(module)
     }
@@ -137,38 +173,50 @@ const PreventFastClickBtnTest = resolve => {
 }
 
 const ListTransitionTest = resolve => {
-  import('Views/ListTransitionTest/ListTransitionTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'ListTransitionTest' */ 'Views/ListTransitionTest/ListTransitionTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const LayoutTest = resolve => {
-  import('Views/LayoutTest/LayoutTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'LayoutTest' */ 'Views/LayoutTest/LayoutTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const EventBusTest = resolve => {
-  import('Views/EventBusTest/EventBusTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'EventBusTest' */ 'Views/EventBusTest/EventBusTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const LoadingTest = resolve => {
-  import('Views/LoadingTest/LoadingTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'LoadingTest' */ 'Views/LoadingTest/LoadingTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 const PullupTest = resolve => {
-  import('Views/PullupTest/PullupTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'PullupTest' */ 'Views/PullupTest/PullupTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 const SwiperTest = resolve => {
-  import('Views/SwiperTest/SwiperTest').then(module => {
-    resolve(module)
-  })
+  import(/* webpackChunkName:'SwiperTest' */ 'Views/SwiperTest/SwiperTest').then(
+    module => {
+      resolve(module)
+    }
+  )
 }
 
 Vue.use(Router)

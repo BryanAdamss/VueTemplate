@@ -4,6 +4,13 @@
 
 const path = require('path')
 
+// * 2018-1226-生产环境区分不同打包模式(现在由于不同打包模式不做区分，所以路径一致，实际生产中，如果是prod，prodAssetsPath可设置成服务器静态资源路径)
+const prodAssetsPath = process.env.BUILD_MODE === 'prod' ? './' : './'
+
+// * 2018-1226-实际接口地址
+const API_PROXY_URL = 'http://jsonplaceholder.typicode.com'
+const API_PREFIX = '/api'
+
 module.exports = {
   dev: {
     // Paths
@@ -12,8 +19,8 @@ module.exports = {
     proxyTable: {
       // * 经过下面配置 '/api/post'这个请求路径就会变成'http://jsonplaceholder.typicode.com/post'
       // 代理所有/api开头的请求
-      '/api': {
-        target: 'http://jsonplaceholder.typicode.com', // 目标url
+      [API_PREFIX]: {
+        target: API_PROXY_URL, // 目标url
         changeOrigin: true, // 更改host header的origin为target URL
         pathRewrite: {
           // 将最终url中匹配正则的部分替换成对应字符串
@@ -24,6 +31,8 @@ module.exports = {
     },
 
     // Various Dev Server settings
+    // host: 'localhost', // can be overwritten by process.env.HOST
+    // * 2018-1226-外网访问
     host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
@@ -56,19 +65,24 @@ module.exports = {
 
   build: {
     // Template for index.html
+    // * 打包后index.html路径
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
+    // * 静态资源一级目录
     assetsRoot: path.resolve(__dirname, '../dist'),
+    // * 静态资源二级目录
     assetsSubDirectory: 'static',
-    // 发布时，需要将assetsPublicPath'/'改为'./' 使用相对路径
-    assetsPublicPath: '/',
+    // * 静态资源发布路径
+    assetsPublicPath: prodAssetsPath,
 
     /**
      * Source Maps
      */
 
-    productionSourceMap: true,
+    // productionSourceMap: true,
+    // * 2019-0103-关闭生产环境sourcemap
+    productionSourceMap: false,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 

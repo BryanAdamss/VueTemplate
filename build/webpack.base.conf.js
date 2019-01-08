@@ -27,6 +27,8 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
+    // * 2018-1226-调整开发、生产环境输出的包名
+    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js'),
     publicPath:
       process.env.NODE_ENV === 'production'
         ? config.build.assetsPublicPath
@@ -37,14 +39,16 @@ module.exports = {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      // * 2018-1226-添加相关路径别名
       Api: resolve('src/api'),
+      Assets: resolve('src/assets'),
       Base: resolve('src/base'),
-      Sass: resolve('src/sass'),
-      Views: resolve('src/views'),
-      Store: resolve('src/store'),
       Common: resolve('src/common'),
+      Components: resolve('src/components'),
       Directives: resolve('src/Directives'),
-      Components: resolve('src/components')
+      Sass: resolve('src/sass'),
+      Store: resolve('src/store'),
+      Views: resolve('src/views')
     }
   },
   module: {

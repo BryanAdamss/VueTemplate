@@ -8,12 +8,13 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "cross-env BUILD_MODE=prod node build/build.js",
+    "build:test": "cross-env BUILD_MODE=test node build/build.js",
+    "dll": "webpack --config build/webpack.dll.conf.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "better-scroll": "^1.12.6",
-    "fastclick": "^1.0.6",
     "velocity-animate": "^1.5.2",
     "vue": "^2.5.2",
     "vue-lazyload": "^1.2.2",
@@ -33,6 +34,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.0",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
@@ -46,6 +48,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-webpack-include-assets-plugin": "^1.0.6",
     "html-webpack-plugin": "^2.30.1",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.8.3",

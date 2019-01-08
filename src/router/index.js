@@ -211,8 +211,17 @@ const PullupTest = resolve => {
     }
   )
 }
+
 const SwiperTest = resolve => {
   import(/* webpackChunkName:'SwiperTest' */ 'Views/SwiperTest/SwiperTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
+const FormulaRenderTest = resolve => {
+  import(/* webpackChunkName:'FormulaRenderTest' */ 'Views/FormulaRenderTest/FormulaRenderTest').then(
     module => {
       resolve(module)
     }
@@ -458,6 +467,14 @@ const router = new Router({
       component: SwiperTest,
       meta: {
         title: '测试SwiperTest'
+      }
+    },
+    {
+      path: '/formula-test',
+      name: 'FormulaRenderTest',
+      component: FormulaRenderTest,
+      meta: {
+        title: '测试FormulaRenderTest'
       }
     }
   ]

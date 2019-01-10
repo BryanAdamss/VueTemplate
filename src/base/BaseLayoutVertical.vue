@@ -4,16 +4,16 @@
       v-if="this.$slots.header"
       class="c-BaseLayoutVertical-hd"
     >
-      <slot name="header"/>
+      <slot name="header" />
     </div>
     <div class="c-BaseLayoutVertical-bd">
-      <slot/>
+      <slot />
     </div>
     <div
       v-if="this.$slots.footer"
       class="c-BaseLayoutVertical-ft"
     >
-      <slot name="footer"/>
+      <slot name="footer" />
     </div>
   </div>
 </template>
@@ -46,6 +46,8 @@ export default {
   -webkit-overflow-scrolling: touch;
   /* 优化滚动性能 */
   will-change: scroll-position;
+  position: relative;
+  z-index: 1;
 }
 .c-BaseLayoutVertical-ft {
   flex: 0 0 auto;

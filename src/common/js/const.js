@@ -12,4 +12,4 @@ export const STATE_CODE = Object.freeze({
 
 export const AXIOS_TIME_OUT = 10 * 1000
 
-export const DEBUG = true
+export const DEBUG = false

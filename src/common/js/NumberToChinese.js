@@ -158,7 +158,7 @@ export default class NumberToChinese {
    * @memberof NumberToChinese
    */
   getSignPartChn(signPart) {
-    if (typeof signPart !== 'string') return '无s法解析'
+    if (typeof signPart !== 'string') return '无法解析'
     return signPart === '-' ? this.signChar : ''
   }
 

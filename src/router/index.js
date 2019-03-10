@@ -228,6 +228,14 @@ const FormulaRenderTest = resolve => {
   )
 }
 
+const NumberToChineseTest = resolve => {
+  import(/* webpackChunkName:'NumberToChineseTest' */ 'Views/NumberToChineseTest/NumberToChineseTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -475,6 +483,14 @@ const router = new Router({
       component: FormulaRenderTest,
       meta: {
         title: '测试FormulaRenderTest'
+      }
+    },
+    {
+      path: '/number-to-chinese-test',
+      name: 'NumberToChineseTest',
+      component: NumberToChineseTest,
+      meta: {
+        title: '测试NumberToChineseTest'
       }
     }
   ]

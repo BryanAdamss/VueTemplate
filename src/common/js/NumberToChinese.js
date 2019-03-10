@@ -68,10 +68,11 @@ export default class NumberToChinese {
     if (
       typeof str !== 'string' ||
       typeof padNum !== 'number' ||
+      isNaN(padNum) ||
       padNum === 0 ||
       typeof padChar !== 'string'
     ) {
-      return
+      return str
     }
 
     while (padNum) {

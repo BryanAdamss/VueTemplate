@@ -2,13 +2,14 @@
  * 浮点数转中文
  *
  * @author:GuangHui
+ * @email:adamssbryan@foxmail.com
  * @export
  * @class NumberToChinese
  */
 export default class NumberToChinese {
   // - 90989002.0384
   // 符号 整数 点号 小数
-  // 符号、点号、小数部分直接查找引射表
+  // 符号、点号、小数部分直接查找引射表进行翻译即可
 
   // 整数部分每个计数数字都跟着一个权位，权位有：''(个位，默认不翻译),十、百、千、万、亿。
   // 整数部分以“万”为小节(整数部分从右至左数每四位为一小节)，对应一个节权位，万以下没有节权位(最小节权位为万)，节权位有：万, 亿, 万亿, 亿亿；例:1 2345 . 3；1属于首小节， 2345为第二小节
@@ -271,7 +272,6 @@ export default class NumberToChinese {
 
         // 处理首小节为10~19的特殊场景
         // 一十一，需要转换成十一
-
         if (index === arr.length - 1 && cur >= 10 && cur < 20) {
           sectionChn = sectionChn.replace(/^一/, '')
         }
@@ -292,9 +292,7 @@ export default class NumberToChinese {
   transform(n) {
     const num = parseFloat(n)
 
-    if (!this.isSafeNumber(num)) {
-      return '无法解析成数字或超出范围'
-    }
+    if (!this.isSafeNumber(num)) return '无法解析成数字或超出范围'
 
     const { sign, interger, dot, decimal } = this.getParts(num)
 

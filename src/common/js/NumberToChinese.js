@@ -172,10 +172,10 @@ export default class NumberToChinese {
    * @memberof NumberToChinese
    */
   getDecimalPartChn(n) {
-    const num = parseInt(n)
-    if (!this.isSafeNumber(num)) return '参数为无法解析'
+    if (!this.isSafeNumber(parseInt(n)) || typeof n !== 'string')
+      return '参数为无法解析'
 
-    return num
+    return n
       .toString()
       .split('')
       .map(item => this.getNumChar(item))

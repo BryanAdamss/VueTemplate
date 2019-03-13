@@ -85,8 +85,8 @@
     "not ie <= 8"
   ],
   "husky": {
-      "hooks": {
-         "pre-commit": "npm run lint"
-       }
-     }
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
 }

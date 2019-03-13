@@ -172,8 +172,9 @@ export default class NumberToChinese {
    * @memberof NumberToChinese
    */
   getDecimalPartChn(n) {
-    if (!this.isSafeNumber(parseInt(n)) || typeof n !== 'string')
+    if (!this.isSafeNumber(parseInt(n)) || typeof n !== 'string') {
       return '参数为无法解析'
+    }
 
     return n
       .toString()

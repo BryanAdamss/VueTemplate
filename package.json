@@ -10,8 +10,7 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "cross-env BUILD_MODE=prod node build/build.js",
     "build:test": "cross-env BUILD_MODE=test node build/build.js",
-    "dll": "webpack --config build/webpack.dll.conf.js",
-    "pre-commit": "npm run lint"
+    "dll": "webpack --config build/webpack.dll.conf.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -84,5 +83,10 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "husky": {
+      "hooks": {
+         "pre-commit": "npm run lint"
+       }
+     }
 }

@@ -1,13 +1,15 @@
 <template>
   <div class="c-EventBusSon2">
     EventBusSon2
-    <button type="button"
-            @click="sendMsg">发消息给son1</button>
+    <button
+      type="button"
+      @click="sendMsg"
+    >发消息给son1</button>
     <div class="c-Msg">
-      接收son1的消息:{{msg}}
+      接收son1的消息:{{ msg }}
     </div>
     <div class="c-Msg">
-      接收grandson1的消息:{{msg2}}
+      接收grandson1的消息:{{ msg2 }}
     </div>
   </div>
 </template>
@@ -54,5 +56,3 @@ export default {
   background-color: #fff;
 }
 </style>
-
- 

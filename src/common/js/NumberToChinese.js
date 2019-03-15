@@ -245,7 +245,7 @@ export default class NumberToChinese {
 
   /**
    * 获取整数部分对应中文
-   *
+   * 思路:整数部分，从右往左每4位为1小节，最左侧为首小节，最右侧4位为末小节;按末小节到首小节顺序，逐节翻译；节内从右向左逐位翻译
    * @param {String|Number} intergerPart 整数部分
    * @returns 整数部分对应中文
    * @memberof NumberToChinese

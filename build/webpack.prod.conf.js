@@ -16,6 +16,9 @@ const env = require('../config/prod.env')
 // * 2018-1226-添加资源导入插件
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 
+// * 2019-0124-添加prefetch
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
+
 // * 生产环境根据不同打包模式导入不同资源
 const HtmlWebpackIncludeAssets =
   process.env.BUILD_MODE === 'test'
@@ -105,6 +108,10 @@ const webpackConfig = merge(baseWebpackConfig, {
       assets: HtmlWebpackIncludeAssets,
       append: false,
       publicPath: false
+    }),
+    // * 2019-0124-prefetch 所有异步chunk
+    new PreloadWebpackPlugin({
+      rel: 'prefetch'
     }),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),

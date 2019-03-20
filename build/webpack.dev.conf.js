@@ -16,6 +16,9 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 // * 2018-1226-添加资源导入插件
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
 
+// * 2019-0124-添加prefetch
+const PreloadWebpackPlugin = require('preload-webpack-plugin')
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -51,7 +54,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll
-    }
+    },
+    // * 2019-0123-添加https支持
+    https: config.dev.https
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -78,6 +83,10 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ],
       append: false,
       publicPath: false
+    }),
+    // * 2019-0124-prefetch 所有异步chunk
+    new PreloadWebpackPlugin({
+      rel: 'prefetch'
     }),
     // copy custom static assets
     new CopyWebpackPlugin([

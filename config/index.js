@@ -60,7 +60,10 @@ module.exports = {
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: true,
+
+    // * 2019-0123-添加https支持
+    https: false
   },
 
   build: {

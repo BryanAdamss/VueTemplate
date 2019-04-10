@@ -236,6 +236,14 @@ const NumberToChineseTest = resolve => {
   )
 }
 
+const DownloaderTest = resolve => {
+  import(/* webpackChunkName:'DownloaderTest' */ 'Views/DownloaderTest/DownloaderTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -491,6 +499,14 @@ const router = new Router({
       component: NumberToChineseTest,
       meta: {
         title: '测试NumberToChineseTest'
+      }
+    },
+    {
+      path: '/downloader-test',
+      name: 'DownloaderTest',
+      component: DownloaderTest,
+      meta: {
+        title: '测试DownloaderTest'
       }
     }
   ]

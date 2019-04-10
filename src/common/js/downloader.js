@@ -114,8 +114,7 @@ class Downloader {
    * @param {String} url url
    */
   _getFileName(url) {
-    return 'test'
-    // return url.lastIndexOf('/') > -1 ? url.slice(url.lastIndexOf('/') + 1) : url
+    return url.lastIndexOf('/') > -1 ? url.slice(url.lastIndexOf('/') + 1) : url
   }
 }
 

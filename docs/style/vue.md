@@ -1001,7 +1001,7 @@ props: {
 #### 反例
 
 ```html
-{{ fullName.split(' ').map(function (word) { return word[0].toUpperCase() + word.slice(1) }).join(' ') }}
+{{ fullName.split(' ').map(word=> word[0].toUpperCase() }}
 ```
 
 #### 好例子

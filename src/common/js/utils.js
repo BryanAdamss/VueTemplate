@@ -248,3 +248,20 @@ export const eventListenerPassiveSupported = () => {
 
   return supported
 }
+
+/**
+ * 从对象中挑选对应属性
+ *
+ * @export
+ * @param {Object} object
+ * @param {Array} keys
+ * @returns
+ */
+export function pick(object, keys) {
+  return keys.reduce((obj, key) => {
+    if (object[key]) {
+      obj[key] = object[key]
+    }
+    return obj
+  }, {})
+}

@@ -208,10 +208,7 @@ data: function () {
 
 ```html
 <ul>
-  <li
-    v-for="todo in todos"
-    :key="todo.id"
-  >
+  <li v-for="todo in todos" :key="todo.id">
     {{ todo.text }}
   </li>
 </ul>
@@ -231,11 +228,7 @@ data: function () {
 
 ```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="user.isActive"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="user.isActive" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -267,10 +260,7 @@ computed: {
 
 ```html
 <ul>
-  <li
-    v-for="user in activeUsers"
-    :key="user.id"
-  >
+  <li v-for="user in activeUsers" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -286,11 +276,7 @@ computed: {
 
 ```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="shouldShowUsers" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -300,10 +286,7 @@ computed: {
 
 ```html
 <ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
+  <li v-for="user in users" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -315,11 +298,7 @@ computed: {
 
 ```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="user.isActive"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="user.isActive" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -327,11 +306,7 @@ computed: {
 
 ```html
 <ul>
-  <li
-    v-for="user in users"
-    v-if="shouldShowUsers"
-    :key="user.id"
-  >
+  <li v-for="user in users" v-if="shouldShowUsers" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -341,10 +316,7 @@ computed: {
 
 ```html
 <ul>
-  <li
-    v-for="user in activeUsers"
-    :key="user.id"
-  >
+  <li v-for="user in activeUsers" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -352,10 +324,7 @@ computed: {
 
 ```html
 <ul v-if="shouldShowUsers">
-  <li
-    v-for="user in users"
-    :key="user.id"
-  >
+  <li v-for="user in users" :key="user.id">
     {{ user.name }}
   </li>
 </ul>
@@ -383,9 +352,9 @@ computed: {
 </template>
 
 <style>
-.btn-close {
-  background-color: red;
-}
+  .btn-close {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -398,14 +367,14 @@ computed: {
 
 <!-- 使用 `scoped` 特性 -->
 <style scoped>
-.button {
-  border: none;
-  border-radius: 2px;
-}
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.button-close {
-  background-color: red;
-}
+  .button-close {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -416,14 +385,14 @@ computed: {
 
 <!-- 使用 CSS Modules -->
 <style module>
-.button {
-  border: none;
-  border-radius: 2px;
-}
+  .button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.buttonClose {
-  background-color: red;
-}
+  .buttonClose {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -434,14 +403,14 @@ computed: {
 
 <!-- 使用 BEM 约定 -->
 <style>
-.c-Button {
-  border: none;
-  border-radius: 2px;
-}
+  .c-Button {
+    border: none;
+    border-radius: 2px;
+  }
 
-.c-Button--close {
-  background-color: red;
-}
+  .c-Button--close {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -818,14 +787,14 @@ components/
 
 ```html
 <!-- 在 DOM 模板中 -->
-<my-component/>
+<my-component />
 ```
 
 #### 好例子
 
 ```html
 <!-- 在单文件组件、字符串模板和 JSX 中 -->
-<MyComponent/>
+<MyComponent />
 ```
 
 ```html
@@ -851,12 +820,12 @@ PascalCase 相比 kebab-case 有一些优势：
 
 ```html
 <!-- 在单文件组件和字符串模板中 -->
-<mycomponent/>
+<mycomponent />
 ```
 
 ```html
 <!-- 在单文件组件和字符串模板中 -->
-<myComponent/>
+<myComponent />
 ```
 
 ```html
@@ -868,7 +837,7 @@ PascalCase 相比 kebab-case 有一些优势：
 
 ```html
 <!-- 在单文件组件和字符串模板中 -->
-<MyComponent/>
+<MyComponent />
 ```
 
 ```html
@@ -982,7 +951,7 @@ props: {
 ```
 
 ```html
-<WelcomeMessage greetingText="hi"/>
+<WelcomeMessage greetingText="hi" />
 ```
 
 #### 好例子
@@ -994,7 +963,7 @@ props: {
 ```
 
 ```html
-<WelcomeMessage greeting-text="hi"/>
+<WelcomeMessage greeting-text="hi" />
 ```
 
 ### 多个特性的元素 <sup data-p="b">强烈推荐</sup>
@@ -1006,28 +975,21 @@ props: {
 #### 反例
 
 ```html
-<img src="https://vuejs.org/images/logo.png" alt="Vue Logo">
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
 ```html
-<MyComponent foo="a" bar="b" baz="c"/>
+<MyComponent foo="a" bar="b" baz="c" />
 ```
 
 #### 好例子
 
 ```html
-<img
-  src="https://vuejs.org/images/logo.png"
-  alt="Vue Logo"
->
+<img src="https://vuejs.org/images/logo.png" alt="Vue Logo" />
 ```
 
 ```html
-<MyComponent
-  foo="a"
-  bar="b"
-  baz="c"
-/>
+<MyComponent foo="a" bar="b" baz="c" />
 ```
 
 ### 模板中简单的表达式 <sup data-p="b">强烈推荐</sup>
@@ -1039,11 +1001,8 @@ props: {
 #### 反例
 
 ```html
-{{
-  fullName.split(' ').map(function (word) {
-    return word[0].toUpperCase() + word.slice(1)
-  }).join(' ')
-}}
+{{ fullName.split(' ').map(function (word) { return word[0].toUpperCase() +
+word.slice(1) }).join(' ') }}
 ```
 
 #### 好例子
@@ -1123,7 +1082,7 @@ computed: {
 #### 反例
 
 ```html
-<input type=text>
+<input type="text" />
 ```
 
 ```html
@@ -1133,11 +1092,11 @@ computed: {
 #### 好例子
 
 ```html
-<input type="text">
+<input type="text" />
 ```
 
 ```html
-<AppSidebar :style="{ width: sidebarWidth + 'px' }">
+<AppSidebar :style="{ width: sidebarWidth + 'px' }"></AppSidebar>
 ```
 
 ### 指令缩写 <sup data-p="b">强烈推荐</sup>
@@ -1147,47 +1106,29 @@ computed: {
 #### 反例
 
 ```html
-<input
-  v-bind:value="newTodoText"
-  :placeholder="newTodoInstructions"
->
+<input v-bind:value="newTodoText" :placeholder="newTodoInstructions" />
 ```
 
 ```html
-<input
-  v-on:input="onInput"
-  @focus="onFocus"
->
+<input v-on:input="onInput" @focus="onFocus" />
 ```
 
 #### 好例子
 
 ```html
-<input
-  :value="newTodoText"
-  :placeholder="newTodoInstructions"
->
+<input :value="newTodoText" :placeholder="newTodoInstructions" />
 ```
 
 ```html
-<input
-  v-bind:value="newTodoText"
-  v-bind:placeholder="newTodoInstructions"
->
+<input v-bind:value="newTodoText" v-bind:placeholder="newTodoInstructions" />
 ```
 
 ```html
-<input
-  @input="onInput"
-  @focus="onFocus"
->
+<input @input="onInput" @focus="onFocus" />
 ```
 
 ```html
-<input
-  v-on:input="onInput"
-  v-on:focus="onFocus"
->
+<input v-on:input="onInput" v-on:focus="onFocus" />
 ```
 
 ## 优先级 C 的规则：推荐 (将选择和认知成本最小化)
@@ -1370,47 +1311,89 @@ computed: {
 #### 反例
 
 ```html
-<style>/* ... */</style>
-<script>/* ... */</script>
-<template>...</template>
+<style>
+  /* ... */
+</style>
+<script>
+  /* ... */
+</script>
+<template
+  >...</template
+>
 ```
 
 ```html
 <!-- ComponentA.vue -->
-<script>/* ... */</script>
-<template>...</template>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<template
+  >...</template
+>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
-<template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<template
+  >...</template
+>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 ```
 
 #### 好例子
 
 ```html
 <!-- ComponentA.vue -->
-<script>/* ... */</script>
-<template>...</template>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<template
+  >...</template
+>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
-<script>/* ... */</script>
-<template>...</template>
-<style>/* ... */</style>
+<script>
+  /* ... */
+</script>
+<template
+  >...</template
+>
+<style>
+  /* ... */
+</style>
 ```
 
 ```html
 <!-- ComponentA.vue -->
-<template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<template
+  >...</template
+>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 
 <!-- ComponentB.vue -->
-<template>...</template>
-<script>/* ... */</script>
-<style>/* ... */</style>
+<template
+  >...</template
+>
+<script>
+  /* ... */
+</script>
+<style>
+  /* ... */
+</style>
 ```
 
 ## 优先级 D 的规则：谨慎使用 (有潜在危险的模式)
@@ -1435,16 +1418,10 @@ computed: {
 #### 好例子
 
 ```html
-<div
-  v-if="error"
-  key="search-status"
->
+<div v-if="error" key="search-status">
   错误：{{ error }}
 </div>
-<div
-  v-else
-  key="search-results"
->
+<div v-else key="search-results">
   {{ results }}
 </div>
 ```
@@ -1476,9 +1453,9 @@ computed: {
 </template>
 
 <style scoped>
-button {
-  background-color: red;
-}
+  button {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -1490,9 +1467,9 @@ button {
 </template>
 
 <style scoped>
-.btn-close {
-  background-color: red;
-}
+  .btn-close {
+    background-color: red;
+  }
 </style>
 ```
 
@@ -1644,52 +1621,16 @@ export default {
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
 
-export default {
-  props: {
-    todo: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: mapActions(['removeTodo'])
-}
-</script>
-```
-
-<script>
-(function () {
-  var enforcementTypes = {
-    none: '<span title="这一规则无法强制执行">自律</span>',
-    runtime: '运行时错误',
-    linter: '<a href="https://github.com/vuejs/eslint-plugin-vue#eslint-plugin-vue" target="_blank">plugin:vue/recommended</a>'
-  }
-  Vue.component('sg-enforcement', {
-    template: '\
-      <span>\
-        <strong>强制执行</strong>:\
-        <span class="style-rule-tag" v-html="humanType"/>\
-      </span>\
-    ',
+  export default {
     props: {
-      type: {
-        type: String,
-        required: true,
-        validate: function (value) {
-          Object.keys(enforcementTypes).indexOf(value) !== -1
-        }
+      todo: {
+        type: Object,
+        required: true
       }
     },
-    computed: {
-      humanType: function () {
-        return enforcementTypes[this.type]
-      }
-    }
-  })
-
-  // new Vue({
-  //  el: '#main'
-  // })
-})()
+    methods: mapActions(['removeTodo'])
+  }
 </script>
+```

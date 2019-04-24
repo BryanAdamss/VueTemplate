@@ -245,6 +245,14 @@ const ScrollbarTest = resolve => {
   )
 }
 
+const TimeCounterTest = resolve => {
+  import(/* webpackChunkName:'TimeCounterTest' */ 'Views/TimeCounterTest/TimeCounterTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
 Vue.use(Router)
 
 const router = new Router({
@@ -516,6 +524,14 @@ const router = new Router({
       component: ScrollbarTest,
       meta: {
         title: '测试ScrollbarTest'
+      }
+    },
+    {
+      path: '/time-counter-test',
+      name: 'TimeCounterTest',
+      component: TimeCounterTest,
+      meta: {
+        title: '测试TimeCounterTest'
       }
     }
   ]

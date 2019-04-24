@@ -3,17 +3,10 @@ import Router from 'vue-router'
 
 import { STATUS_OK } from 'Api/config'
 
+import Home from 'Views/home/home'
+
 // * 同步导入（可优化成下面的动态导入）
-// import Home from 'Views/home/home'
-// import UserCenter from 'Views/UserCenter/UserCenter'
-
 // * 使用动态载入
-const Home = resolve => {
-  import(/* webpackChunkName:'Home' */ 'Views/Home/Home').then(module => {
-    resolve(module)
-  })
-}
-
 const HomeChild1 = resolve => {
   import(/* webpackChunkName:'HomeChild1' */ 'Views/Home/HomeChild1').then(
     module => {
@@ -238,6 +231,14 @@ const NumberToChineseTest = resolve => {
 
 const DownloaderTest = resolve => {
   import(/* webpackChunkName:'DownloaderTest' */ 'Views/DownloaderTest/DownloaderTest').then(
+    module => {
+      resolve(module)
+    }
+  )
+}
+
+const ScrollbarTest = resolve => {
+  import(/* webpackChunkName:'ScrollbarTest' */ 'Views/ScrollbarTest/ScrollbarTest').then(
     module => {
       resolve(module)
     }
@@ -507,6 +508,14 @@ const router = new Router({
       component: DownloaderTest,
       meta: {
         title: '测试DownloaderTest'
+      }
+    },
+    {
+      path: '/scrollbar-test',
+      name: 'ScrollbarTest',
+      component: ScrollbarTest,
+      meta: {
+        title: '测试ScrollbarTest'
       }
     }
   ]

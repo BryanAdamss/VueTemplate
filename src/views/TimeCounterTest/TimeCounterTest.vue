@@ -39,6 +39,7 @@ export default {
         that.time = time
       },
       onEnd(time) {
+        that.time = time
         console.log('计时结束')
       }
     })

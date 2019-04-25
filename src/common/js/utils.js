@@ -265,3 +265,16 @@ export function pick(object, keys) {
     return obj
   }, {})
 }
+
+/**
+ * 断言
+ *
+ * @export
+ * @param {Any} conditions
+ * @param {String} msg
+ */
+export function assert(conditions, msg) {
+  if (process.env.NODE_ENV === 'production') return
+
+  if (!conditions) console.warn(`[Assert Error]:${msg}`)
+}

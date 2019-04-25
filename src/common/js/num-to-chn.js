@@ -4,9 +4,9 @@
  * @author:GuangHui
  * @email:adamssbryan@foxmail.com
  * @export
- * @class NumberToChinese
+ * @class NumToChn
  */
-export default class NumberToChinese {
+export default class NumToChn {
   // - 90989002.0384
   // 符号 整数 点号 小数
   // 符号、点号、小数部分直接查找引射表进行翻译即可
@@ -63,7 +63,7 @@ export default class NumberToChinese {
    * @param {String} padChar 填充字符
    * @param {Boolean} [before=true] 前填充
    * @returns 填充后的字符串
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   padStr(str, padNum, padChar, before = true) {
     if (
@@ -93,7 +93,7 @@ export default class NumberToChinese {
    *
    * @param {Number} i 数字
    * @returns 对应数字的中文
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getNumChar(i) {
     return this.numChars[i]
@@ -120,7 +120,7 @@ export default class NumberToChinese {
    *
    * @param {Number} n 需要分解的数字
    * @returns 数字各组成部分
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getParts(n) {
     const num = parseFloat(n)
@@ -145,7 +145,7 @@ export default class NumberToChinese {
    *
    * @param {String} dotPart 点号部分
    * @returns 点号对应中文
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getDotPartChn(dotPart) {
     if (typeof dotPart !== 'string') return '无法解析'
@@ -157,7 +157,7 @@ export default class NumberToChinese {
    *
    * @param {String} signPart 符号部分
    * @returns 符号对应中文
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getSignPartChn(signPart) {
     if (typeof signPart !== 'string') return '无法解析'
@@ -169,7 +169,7 @@ export default class NumberToChinese {
    *
    * @param {Number | String} deci 小数部分
    * @returns 小数部分的中文表示
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getDecimalPartChn(n) {
     if (!this.isSafeNumber(parseInt(n)) || typeof n !== 'string') {
@@ -188,7 +188,7 @@ export default class NumberToChinese {
    *
    * @param {String|Number} n 整数
    * @returns 小节数组
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getIntergerSections(n) {
     let num = parseInt(n)
@@ -245,10 +245,10 @@ export default class NumberToChinese {
 
   /**
    * 获取整数部分对应中文
-   * 思路:整数部分，从右往左每4位为1小节，最左侧为首小节，最右侧4位为末小节;按末小节到首小节顺序，逐节翻译；节内从右向左逐位翻译
+   *
    * @param {String|Number} intergerPart 整数部分
    * @returns 整数部分对应中文
-   * @memberof NumberToChinese
+   * @memberof NumToChn
    */
   getIntergetPartChn(intergerPart) {
     const originNum = parseInt(intergerPart)

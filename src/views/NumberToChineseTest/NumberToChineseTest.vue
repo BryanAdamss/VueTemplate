@@ -17,8 +17,8 @@
  * * NumberToChineseTest
  */
 
-import NumberToChinese from 'Common/js/NumberToChinese'
-const numberToChn = new NumberToChinese()
+import Num2Chn from 'Common/js/num-to-chn'
+const numberToChn = new Num2Chn()
 
 export default {
   name: 'NumberToChineseTest',

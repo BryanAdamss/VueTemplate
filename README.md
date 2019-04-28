@@ -1,10 +1,11 @@
 # vue-template
 
-> A Vue.js project
+> Vue 模板
+> 此 repo 已放弃更新，请参考 `https://github.com/BryanAdamss/vue-10w-template`
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 

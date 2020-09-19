@@ -1,12 +1,7 @@
 # vue-template
 
 > Vue 模板
-> 此 repo 已停止更新，请迁移至 `[vue-10w-template](https://github.com/BryanAdamss/vue-10w-template)`
-
-
-# vue-10w-template
-
-> 参考[https://juejin.im/post/5b29c3bde51d45588d4d7110](https://juejin.im/post/5b29c3bde51d45588d4d7110)目录结构集成的一个vue模板
+> 此 repo 已停止更新，请迁移至 `[vue-awesome-template](https://github.com/BryanAdamss/vue-awesome-template)`
 
 ## vue组件
 - 翻页组件

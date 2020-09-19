@@ -1,7 +1,7 @@
 # vue-template
 
 > Vue 模板
-> 此 repo 已停止更新，请迁移至 `[vue-awesome-template](https://github.com/BryanAdamss/vue-awesome-template)`
+> 此 repo 已停止更新，请使用 [vue-awesome-template](https://github.com/BryanAdamss/vue-awesome-template) `一个vue-cli@4.x的vue@2.x 项目模板`
 
 ## vue组件
 - 翻页组件

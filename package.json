@@ -13,7 +13,7 @@
     "dll": "webpack --config build/webpack.dll.conf.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "better-scroll": "^1.12.6",
     "velocity-animate": "^1.5.2",
     "vue": "^2.5.2",
